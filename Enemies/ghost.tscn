@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://cqwrfi5sth214"]
+
+[ext_resource type="Texture2D" uid="uid://coc7oc5vy1ybo" path="res://Enemies/ghost.png" id="1_vy07n"]
+[ext_resource type="Texture2D" uid="uid://bxnrvyathwb3p" path="res://Shadows/SmallShadow.png" id="2_j030k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cshke"]
+atlas = ExtResource("1_vy07n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3qol"]
+atlas = ExtResource("1_vy07n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c11du"]
+atlas = ExtResource("1_vy07n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpg7x"]
+atlas = ExtResource("1_vy07n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi48p"]
+atlas = ExtResource("1_vy07n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsloh"]
+atlas = ExtResource("1_vy07n")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0fit"]
+atlas = ExtResource("1_vy07n")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6f8p0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cshke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3qol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c11du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpg7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi48p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsloh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0fit")
+}],
+"loop": true,
+"name": &"Fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sxib7"]
+radius = 4.0
+
+[node name="Ghost" type="CharacterBody2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6f8p0")
+animation = &"Fly"
+autoplay = "Fly"
+frame_progress = 0.428923
+offset = Vector2(2.08165e-12, -16)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("2_j030k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sxib7")
