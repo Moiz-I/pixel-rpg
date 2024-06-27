@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://doyl1bskoib26"]
+[gd_scene load_steps=10 format=3 uid="uid://doyl1bskoib26"]
 
 [ext_resource type="Texture2D" uid="uid://drlkm2sb16dtb" path="res://Effects/GrassEffect.png" id="1_g0wu3"]
 [ext_resource type="Script" path="res://Effects/effect.gd" id="1_vgdrk"]
+[ext_resource type="AudioStream" uid="uid://dhk6lejde7dqn" path="res://Music and Sounds/leafrustle.wav" id="3_xk3vr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bbfy"]
 atlas = ExtResource("1_g0wu3")
@@ -53,3 +54,7 @@ autoplay = "Animate"
 centered = false
 offset = Vector2(-8, -8)
 script = ExtResource("1_vgdrk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xk3vr")
+autoplay = true

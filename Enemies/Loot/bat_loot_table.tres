@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=2 format=3 uid="uid://gw7f1trnfimn"]
+
+[ext_resource type="Script" path="res://Enemies/Loot/loot_table.gd" id="2_xk7g8"]
+
+[resource]
+script = ExtResource("2_xk7g8")
+table = null

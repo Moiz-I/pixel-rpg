@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://World/grass.gd" id="1_8mgdk"]
 [ext_resource type="Texture2D" uid="uid://driftvbyvusjf" path="res://World/Grass.png" id="1_mh8jh"]
-[ext_resource type="PackedScene" uid="uid://cj0qsfcjkcfcc" path="res://hurtbox.tscn" id="3_lgmfo"]
+[ext_resource type="PackedScene" uid="uid://p7qcn13ya0rr" path="res://hurtbox.tscn" id="3_lgmfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7kre"]
 size = Vector2(14, 14)
@@ -18,7 +18,6 @@ offset = Vector2(-8, -8)
 [node name="Hurtbox" parent="." instance=ExtResource("3_lgmfo")]
 collision_layer = 8
 collision_mask = 20
-show_hit = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(8, 8)

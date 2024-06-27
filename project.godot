@@ -15,6 +15,10 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerStats="*res://Player/player_stats.tscn"
+
 [display]
 
 window/size/viewport_width=320
@@ -74,6 +78,9 @@ roll={
 2d_physics/layer_4="EnemyHurtbox"
 2d_physics/layer_5="EnvironmentHitbox"
 2d_physics/layer_6="Enemy"
+2d_physics/layer_7="EnemyHitbox"
+2d_physics/layer_8="PlayerHurtbox"
+2d_physics/layer_9="SoftCollisions"
 
 [rendering]
 

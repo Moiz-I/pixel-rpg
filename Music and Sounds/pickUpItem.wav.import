@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c775hge3bpj3e"
+path="res://.godot/imported/pickUpItem.wav-999158d442804909f1e3a3fab139af40.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/pickUpItem.wav"
+dest_files=["res://.godot/imported/pickUpItem.wav-999158d442804909f1e3a3fab139af40.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
