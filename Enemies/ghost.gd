@@ -2,6 +2,17 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var playerDetectionZone = $PlayerDetectionZone
+@onready var interaction_area: InteractionArea = $InteractionArea
+
+@onready var speech_sound = preload("res://Dialog/ghost_speech.wav")
+
+const lines: Array[String] = [
+	"hello there",
+	"nice day isnt it?",
+	"building sandcastles and what not and building sandcastles and what not",
+	"...",
+	"well...",
+]
 
 @export var speed = 60
 @export_range(0.0, 1.0) var friction = 200  # Friction factor
@@ -13,8 +24,15 @@ func _ready():
 	sprite.frame = randf_range(0, sprite.sprite_frames.get_frame_count("Fly")-1)
 	sprite.flip_h = randi() % 2 == 0
 	
+	interaction_area.interact = Callable(self, "_on_interact")
+	
+func _on_interact():
+	DialogManager.start_dialog(global_position, lines, speech_sound) #add speech_sound
+	#spite flip
+	await DialogManager.dialog_finished
 
 func _process(delta):
+	pass
 #	var player = playerDetectionZone.player
 #	if player != null:
 #		accelerate_towards_point(delta, player.global_position)

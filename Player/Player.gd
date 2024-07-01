@@ -17,6 +17,7 @@ var stats = PlayerStats
 @onready var hurtbox = $Hurtbox
 @onready var footstep_timer = $FootstepTimer
 @onready var audio_player = $FootstepAudio
+@onready var pickup_audio = $ItemPickupAudio
 const PlayerHurtSound = preload("res://Player/player_hurt_sound.tscn")
 
 enum {
@@ -84,8 +85,11 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 
 func collect_item(item: InvItem):
 	inv.insert_item(item)
+	pickup_audio.play()
 
 func _physics_process(delta):
+	if DialogManager.is_dialog_active:
+		return
 	match state:
 		MOVE:
 			get_input()

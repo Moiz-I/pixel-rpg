@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cblt0pfybf4x8"]
+[gd_scene load_steps=63 format=3 uid="uid://cblt0pfybf4x8"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_ac3by"]
 [ext_resource type="Resource" uid="uid://dphj5qwpnul4a" path="res://Inventory/player_inv.tres" id="2_0pjq0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://p7qcn13ya0rr" path="res://Boxes and Collisions/hurtbox.tscn" id="4_p6srt"]
 [ext_resource type="AudioStream" uid="uid://qfyqggecik5m" path="res://Music and Sounds/clubswipe.wav" id="5_31xs2"]
 [ext_resource type="AudioStream" uid="uid://co30yxu84047x" path="res://Music and Sounds/running_grass.mp3" id="9_cw8lh"]
+[ext_resource type="AudioStream" uid="uid://c775hge3bpj3e" path="res://Music and Sounds/pickUpItem.wav" id="10_6hgic"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4s1g7"]
 radius = 4.0
@@ -250,6 +251,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [18]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_0bvn5"]
 resource_name = "IdleLeft"
@@ -266,6 +279,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_s77ec"]
@@ -284,6 +309,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_uvmno"]
 resource_name = "IdleUp"
@@ -300,6 +337,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ix0h8"]
@@ -340,6 +389,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_t47kx"]
@@ -840,7 +901,7 @@ height = 18.0
 radius = 6.0
 height = 20.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_ac3by")
 inv = ExtResource("2_0pjq0")
@@ -915,6 +976,10 @@ one_shot = true
 
 [node name="FootstepAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_cw8lh")
+
+[node name="ItemPickupAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6hgic")
+pitch_scale = 1.24
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

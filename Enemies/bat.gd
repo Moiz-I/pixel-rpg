@@ -60,6 +60,9 @@ func _physics_process(delta: float) -> void:
 				update_wander()
 			
 		CHASE:
+			if DialogManager.is_dialog_active:
+				return 
+				
 			var player = playerDetectionZone.player
 			if player != null:
 				accelerate_towards_point(delta, player.global_position)

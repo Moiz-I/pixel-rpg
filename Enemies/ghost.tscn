@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqwrfi5sth214"]
+[gd_scene load_steps=17 format=3 uid="uid://cqwrfi5sth214"]
 
 [ext_resource type="Script" path="res://Enemies/ghost.gd" id="1_3qsx2"]
 [ext_resource type="Texture2D" uid="uid://coc7oc5vy1ybo" path="res://Enemies/ghost.png" id="1_vy07n"]
 [ext_resource type="Texture2D" uid="uid://bxnrvyathwb3p" path="res://Shadows/SmallShadow.png" id="2_j030k"]
 [ext_resource type="PackedScene" uid="uid://cvjtku0sor2a" path="res://Enemies/player_detection_zone.tscn" id="4_swjoq"]
+[ext_resource type="PackedScene" uid="uid://bnin62s0s0rkj" path="res://Interaction/interaction_area.tscn" id="5_x3gm4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cshke"]
 atlas = ExtResource("1_vy07n")
@@ -68,13 +69,13 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_3rt66"]
 radius = 73.1095
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_maj0r"]
+radius = 37.0
+
 [node name="Ghost" type="CharacterBody2D"]
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_3qsx2")
-speed = null
-friction = null
-acceleration = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6f8p0")
@@ -93,6 +94,11 @@ shape = SubResource("CircleShape2D_sxib7")
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource("CircleShape2D_3rt66")
+
+[node name="InteractionArea" parent="." instance=ExtResource("5_x3gm4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_maj0r")
 
 [connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_player_detection_zone_body_entered"]
 
