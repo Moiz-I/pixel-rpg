@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
+#@onready var player = get_tree().get_first_node_in_group("player")
 @onready var label = $NinePatchRect/MarginContainer/Label
 @onready var textbox = $Textbox
 @onready var audio_player = $AudioStreamPlayer
@@ -25,7 +25,7 @@ func _process(delta):
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		textbox.global_position = active_areas[0].global_position
-		textbox.global_position.y -= 68
+		textbox.global_position.y -= 50
 		textbox.global_position.x -= textbox.size.x / 2
 		
 		if not textbox_was_visible:
@@ -44,6 +44,7 @@ func _process(delta):
 			textbox_was_visible = false
 
 func _sort_by_distance_to_player(area1, area2):
+	var player = get_tree().get_first_node_in_group("player")
 	var area1_to_player = player.global_position.distance_to(area1.global_position)
 	var area2_to_player = player.global_position.distance_to(area2.global_position)
 	return area1_to_player < area2_to_player

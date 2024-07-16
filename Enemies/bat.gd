@@ -109,11 +109,14 @@ func drop_loot():
 	loot_item.item = loot_drop
 	get_parent().add_child(loot_item)
 	loot_item.position = position
-	print("v dl", velocity)
+	# print("v dl", velocity)
 	loot_item.loot_item_dropped(velocity)
 	
 
 
 func _on_stats_no_health() -> void:
+	on_bat_killed.emit()
 	create_death_effect()
 	queue_free()
+
+signal on_bat_killed

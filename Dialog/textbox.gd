@@ -19,7 +19,7 @@ signal finished_displaying()
 func _ready():
 	scale = Vector2.ZERO
 
-func display_text(text_to_display: String, speech_sfx: AudioStream):
+func display_text(text_to_display: String, speech_sfx: AudioStream, is_player: bool):
 	text = text_to_display
 	label.text = text_to_display
 	audio_player.stream = speech_sfx
@@ -44,6 +44,22 @@ func display_text(text_to_display: String, speech_sfx: AudioStream):
 	tween.tween_property(
 		self, "scale", Vector2(1,1), 0.3
 	).set_trans(Tween.TRANS_BACK)
+
+	if !is_player:
+		# self.modulate = Color("#a2eeff")
+
+		#green
+		# self.modulate = Color("#c3f6dd")
+		# label.modulate = Color("#414631")
+
+		#blue
+		self.modulate = Color("#c1dbfc")
+		label.modulate = Color("#23485d")
+
+	# if is_player:
+	# 	self.modulate = Color("#ffdee5")
+
+
 	_display_letter()
 
 func _display_letter():
@@ -52,7 +68,7 @@ func _display_letter():
 	letter_index += 1
 	if letter_index >= text.length():
 		finished_displaying.emit()
-		next_indicator.visible = true
+#		next_indicator.visible = true
 		return
 		
 	match text[letter_index]:

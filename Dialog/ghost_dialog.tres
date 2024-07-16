@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CharacterDialog" load_steps=2 format=3 uid="uid://bxe7fx8xrnip4"]
+
+[ext_resource type="Script" path="res://character_dialog.gd" id="1_qatps"]
+
+[resource]
+script = ExtResource("1_qatps")
+dialog_file = "res://Dialog/CharacterDialogs/example_dialog.json"

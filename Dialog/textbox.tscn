@@ -52,14 +52,14 @@ texture = ExtResource("4_j4lqd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.403922, 0.203922, 0, 1)
+theme_override_colors/font_color = Color(0.4, 0.2, 0, 1)
 theme_override_fonts/font = ExtResource("2_xmseo")
 theme_override_font_sizes/font_size = 16
 vertical_alignment = 1

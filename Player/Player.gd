@@ -27,9 +27,17 @@ enum {
 }
 @export var state = MOVE
 
+signal player_died
+
+func on_player_death():
+	player_died.emit()
+	#queue_free()
+	
+func respawn():
+	stats.reset_health()
+
 func _ready():
-	stats.connect("no_health", queue_free)
-	print(stats.health)
+	stats.connect("no_health", on_player_death)
 
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -81,7 +89,8 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		hurtbox.start_invincibility(0.5)
 		hurtbox.create_hit_effect()
 		var playerHurtSound = PlayerHurtSound.instantiate()
-		get_tree().current_scene.add_child(playerHurtSound)
+		#get_tree().current_scene.add_child(playerHurtSound)
+		get_parent().add_child(playerHurtSound)
 
 func collect_item(item: InvItem):
 	inv.insert_item(item)

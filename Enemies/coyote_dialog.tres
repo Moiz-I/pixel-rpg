@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CharacterDialog" load_steps=2 format=3 uid="uid://bsjpi0cbbielv"]
+
+[ext_resource type="Script" path="res://character_dialog.gd" id="1_a4cdj"]
+
+[resource]
+script = ExtResource("1_a4cdj")
+dialog_file = "res://Dialog/CharacterDialogs/coyote_dialog.json"

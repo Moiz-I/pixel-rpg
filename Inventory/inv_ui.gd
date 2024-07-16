@@ -11,3 +11,9 @@ func _ready():
 func update_slots():
 	for i in range(min(inv.items.size(), slots.size())):
 		slots[i].update(inv.items[i])
+
+func _process(delta: float) -> void:
+	if DialogManager.is_dialog_active:
+		self.hide()
+	else:
+		self.show()

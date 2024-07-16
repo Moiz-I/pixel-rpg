@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cblt0pfybf4x8"]
+[gd_scene load_steps=62 format=3 uid="uid://cblt0pfybf4x8"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_ac3by"]
 [ext_resource type="Resource" uid="uid://dphj5qwpnul4a" path="res://Inventory/player_inv.tres" id="2_0pjq0"]
@@ -888,8 +888,6 @@ states/Start/position = Vector2(207, 90)
 transitions = ["Run", "End", SubResource("AnimationNodeStateMachineTransition_nug6o"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_nj6it"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_honyy"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_yo5ta"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_7oyr3"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_nb2ek"), "Idle", "Roll", SubResource("AnimationNodeStateMachineTransition_2hlis"), "Roll", "Idle", SubResource("AnimationNodeStateMachineTransition_02x23")]
 graph_offset = Vector2(-258.6, -84.66)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_evlju"]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pl7eh"]
 height = 32.0
 
@@ -929,8 +927,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_vk6qq")
 anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_evlju")
 parameters/Attack/blend_position = Vector2(0.00238478, 0.102326)
 parameters/Idle/blend_position = Vector2(0.000794888, 0.106312)
 parameters/Roll/blend_position = Vector2(0.000794888, 0.124252)

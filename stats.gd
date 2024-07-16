@@ -15,6 +15,9 @@ extends Node
 
 func _ready():
 	self.health = max_health
+	
+func reset_health():
+	self.health = max_health
 
 signal no_health
 signal health_changed

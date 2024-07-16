@@ -1,4 +1,13 @@
 extends Node2D
+#@onready var quest_label = $CanvasLayer/Control
+#@onready var quest_audio = $NewQuest
+@onready var bg_audio = $BGAudio
+@onready var coyote = $Coyote
+@onready var coyote_pre =  $InvisibleSpawnPoints/CoyotePre
+@onready var coyote_post =  $InvisibleSpawnPoints/CoyotePost
+@onready var player_spawn = $InvisibleSpawnPoints/Player/Spawn
+@onready var player = $Player
+
 #
 #
 #var COIN_SCENE = preload("res://Inventory/item.tscn")
@@ -10,12 +19,34 @@ extends Node2D
 #const MIN_Y = -80.0
 #const MAX_Y =  80.0
 #
-#func _ready():
-#	randomize()
-#
-#func _process(delta):
-#	if Input.is_action_just_pressed("ui_accept"):
-#		var coins = []
+func player_death():
+	player.respawn()
+	player.position = player_spawn.position
+
+func _ready():
+	player.connect("player_died", player_death)
+	
+	match QuestManager.current_quest_index:
+		0:
+			coyote.position = coyote_pre.position
+		1:
+			coyote.position = coyote_post.position
+			player.position = $InvisibleSpawnPoints/Player/PostBat.positio
+	
+##	randomize()
+#	quest_label.scale = Vector2.ZERO
+##
+func _process(delta):
+	if Input.is_action_just_pressed("open_settings"):
+		Globals.open_settings_menu()
+##		quest_label.show()
+#		quest_audio.play()
+#		var tween = get_tree().create_tween()
+#		quest_label.pivot_offset = Vector2((quest_label.size.x / 2) + 30, quest_label.size.y - 20)
+#		tween.tween_property(
+#			quest_label, "scale", Vector2(1,1), 0.2
+#		).set_trans(Tween.TRANS_BACK)
+		
 #
 #		for i in range(5):
 #			var idk = COIN_SCENE.instantiate()
@@ -39,3 +70,14 @@ extends Node2D
 #
 #
 ##		tween.start()
+
+
+
+
+func _on_bg_audio_finished() -> void:
+	bg_audio.play()
+
+
+#func _on_settings_button_button_up() -> void:
+	#print("clicked")
+	#Globals.open_settings_menu()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://b68jnus2hch77"]
+[gd_scene load_steps=89 format=3 uid="uid://b68jnus2hch77"]
 
 [ext_resource type="Texture2D" uid="uid://bir7xjg7ge6yd" path="res://World/GrassBackground.png" id="1_5mpdx"]
 [ext_resource type="Script" path="res://world.gd" id="1_ctwol"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bqqpvgve6mj31" path="res://World/bush.tscn" id="2_ffg02"]
 [ext_resource type="Texture2D" uid="uid://b1dvcvrqsky8u" path="res://World/testtilemap.png" id="2_wnt87"]
 [ext_resource type="Texture2D" uid="uid://d4hv5p2rnxoyx" path="res://World/DirtTileset.png" id="4_f22p5"]
+[ext_resource type="Texture2D" uid="uid://6iuaewdjcjdx" path="res://Dialog/Position marker icon.png" id="4_gfl5l"]
 [ext_resource type="Texture2D" uid="uid://xjmpt85ii6ji" path="res://World/CliffTileset.png" id="5_43fo3"]
+[ext_resource type="FontFile" uid="uid://d3pdb27vna1j4" path="res://Dialog/Pixellari.ttf" id="5_bkbrt"]
+[ext_resource type="Texture2D" uid="uid://1b6jgxf3kqoh" path="res://Dialog/textbox2.png" id="6_uq73o"]
 [ext_resource type="Texture2D" uid="uid://bdvceabjh2jx3" path="res://World/Godot_Autotiles_16x16.png" id="7_2suhp"]
 [ext_resource type="PackedScene" uid="uid://3rfoxuxbjpei" path="res://World/tree.tscn" id="7_y17vl"]
 [ext_resource type="PackedScene" uid="uid://cqwrfi5sth214" path="res://Enemies/ghost.tscn" id="8_bsydn"]
@@ -16,8 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://cxpk7uvw0pygi" path="res://UI/health_ui.tscn" id="11_xnfxa"]
 [ext_resource type="AudioStream" uid="uid://c2g1vkmnovtd1" path="res://Music and Sounds/summer_day.wav" id="12_mc0t2"]
 [ext_resource type="PackedScene" uid="uid://0wqckqt4mui8" path="res://Inventory/item.tscn" id="14_clso6"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="15_8nfv2"]
 [ext_resource type="Resource" uid="uid://bpl3cp8tgsags" path="res://Inventory/Items/jam.tres" id="15_bg7fm"]
-[ext_resource type="Texture2D" uid="uid://cyeru8dd7msqm" path="res://World/Beach_Seagull_Idle_Left_16x16.png" id="18_3igcm"]
+[ext_resource type="PackedScene" uid="uid://dhq5fsmtsfb73" path="res://seagull.tscn" id="18_gw6c6"]
 [ext_resource type="Texture2D" uid="uid://bdmc3c0b4qk" path="res://World/Beach_Floating_Rock_1_16x16.png" id="18_ocqq1"]
 [ext_resource type="Texture2D" uid="uid://cooap1kt0tc56" path="res://World/Bubbles_16x16.png" id="20_utlph"]
 [ext_resource type="Texture2D" uid="uid://bfbt13rkdt60l" path="res://World/Fishes_1_16x16.png" id="21_no502"]
@@ -29,6 +33,17 @@
 [ext_resource type="Texture2D" uid="uid://clc8g2yx2plgg" path="res://World/newstuff/ME_Singles_Villas_16x16_Villa_Yard_Flowers_5.png" id="27_c52jr"]
 [ext_resource type="Texture2D" uid="uid://i3q47x1s0amr" path="res://World/newstuff/ME_Singles_Villas_16x16_Villa_Yard_Props_3.png" id="28_35g70"]
 [ext_resource type="Texture2D" uid="uid://7d0odgjulfj1" path="res://World/newstuff/ME_Singles_Villas_16x16_Villa_Yard_Props_19.png" id="29_sy0xq"]
+[ext_resource type="PackedScene" uid="uid://bij0lssr2im7m" path="res://cutscene_effect.tscn" id="30_x2iwq"]
+[ext_resource type="Texture2D" uid="uid://qs5237q3ruwt" path="res://World/newstuff/ME_Singles_Camping_16x16_Tree_4.png" id="32_la7dv"]
+[ext_resource type="Texture2D" uid="uid://chb2gpakupi1e" path="res://World/newstuff/ME_Singles_Camping_16x16_Tree_92.png" id="33_134jb"]
+[ext_resource type="AudioStream" uid="uid://bn8qcnn487muo" path="res://Dialog/secret1.wav" id="37_6uxku"]
+[ext_resource type="PackedScene" uid="uid://dm2l24db0ilbp" path="res://Enemies/coyote.tscn" id="38_usw3v"]
+[ext_resource type="PackedScene" uid="uid://dkia5061qq1ci" path="res://Enemies/wolf.tscn" id="39_0m1t1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26xc0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pulcr"]
+bg_color = Color(0.364706, 0.345098, 0.494118, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e1u0x"]
 texture = ExtResource("5_43fo3")
@@ -4088,56 +4103,6 @@ terrain_set_0/terrain_0/name = "lake"
 terrain_set_0/terrain_0/color = Color(0.584314, 0.25098, 0.415686, 1)
 sources/0 = SubResource("TileSetAtlasSource_cavk7")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ssy2b"]
-atlas = ExtResource("18_3igcm")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_34jaq"]
-atlas = ExtResource("18_3igcm")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_maowh"]
-atlas = ExtResource("18_3igcm")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ys4d0"]
-atlas = ExtResource("18_3igcm")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1bg2y"]
-atlas = ExtResource("18_3igcm")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0tub6"]
-atlas = ExtResource("18_3igcm")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_o4sl3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ssy2b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_34jaq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_maowh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ys4d0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1bg2y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0tub6")
-}],
-"loop": true,
-"name": &"seagull",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ld8pr"]
 atlas = ExtResource("18_ocqq1")
 region = Rect2(0, 0, 16, 16)
@@ -4417,10 +4382,65 @@ script = ExtResource("1_ctwol")
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource("11_xnfxa")]
 
 [node name="InvUI" parent="CanvasLayer" instance=ExtResource("2_1k7n7")]
-offset_left = 96.0
-offset_top = 152.0
-offset_right = 220.0
-offset_bottom = 174.0
+offset_left = 128.0
+offset_top = 180.0
+offset_right = 252.0
+offset_bottom = 202.0
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer"]
+visible = false
+z_index = 99
+offset_right = 520.0
+offset_bottom = 520.0
+scale = Vector2(0.03, 0.03)
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxFlat_26xc0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pulcr")
+text = "settings"
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 117.0
+offset_top = 30.0
+offset_right = 157.0
+offset_bottom = 70.0
+
+[node name="PathDistanceIcon" type="Sprite2D" parent="CanvasLayer/Control"]
+modulate = Color(0.964102, 0.000877057, 0.0588306, 0.909804)
+z_index = 1
+position = Vector2(-34, 16)
+scale = Vector2(0.0400391, 0.0400391)
+texture = ExtResource("4_gfl5l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+z_index = 1
+layout_mode = 0
+offset_left = -18.0
+offset_top = -8.0
+offset_right = 138.0
+offset_bottom = 31.0
+theme_override_colors/default_color = Color(0.552941, 0.00392157, 0, 0.654902)
+theme_override_fonts/normal_font = ExtResource("5_bkbrt")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "
+new quest [wave amp=50.0 freq=5.0 connected=1]unlocked
+"
+autowrap_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control"]
+modulate = Color(0.982468, 0.871324, 0.822457, 1)
+layout_mode = 0
+offset_left = -48.0
+offset_right = 127.0
+offset_bottom = 31.0
+texture = ExtResource("6_uq73o")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
 
 [node name="CliffTileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -4437,31 +4457,23 @@ format = 2
 layer_0/name = "Ground"
 layer_0/tile_data = PackedInt32Array(393216, 524289, 2, 458752, 65537, 2, 458753, 327681, 3, 655364, 262145, 1, 589828, 262145, 2, 524292, 196609, 1, 458754, 65537, 3, 458755, 65537, 3, 655365, 589825, 0, 720901, 393217, 3, 262160, 1, 0, 262161, 589825, 1, 262162, 327681, 1, 196626, 589825, 1, 131091, 458753, 2, 196625, 1, 0, 131090, 262145, 2, 65555, 524289, 1, 327697, 393217, 3, 327696, 655361, 2, 327698, 131073, 2, 327695, 1, 0, 393231, 1, 1, 458767, 589825, 1, 458766, 1, 0, 524303, 131073, 2, 524302, 589825, 1, 524301, 65537, 0, 589837, 65537, 1, 589838, 131073, 1, 655374, 131073, 2, 458751, 262145, 2, 524287, 1, 2, 65556, 131073, 2, 458756, 458753, 0, 589829, 131073, 0, 393217, 131073, 0, 327680, 131073, 0, 393215, 1, 0, 393232, 131073, 1, 458768, 131073, 2, 19, 65537, 0, 20, 131073, 0, 196627, 458753, 1, 262163, 131073, 2, 65554, 262145, 1, 18, 1, 0, 720900, 524289, 3, 720899, 1, 3)
 layer_1/name = "Cliffs"
-layer_1/enabled = true
-layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = false
-layer_1/y_sort_origin = 0
-layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "ysort"
-layer_2/enabled = true
-layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
-layer_2/y_sort_origin = 0
-layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(262152, 3, 0)
 
 [node name="TileMap2" type="TileMap" parent="."]
+rotation = 0.000256823
 tile_set = SubResource("TileSet_wb24b")
 format = 2
-layer_0/tile_data = PackedInt32Array(196629, 524288, 8, 196630, 655360, 8, 196631, 655360, 8, 196632, 655360, 8, 196633, 720896, 8, 262169, 720896, 10, 327705, 720896, 10, 393241, 720896, 11, 393240, 589824, 11, 393239, 589824, 11, 393238, 524288, 11, 327702, 327680, 10, 327701, 524288, 11, 262165, 524288, 9, 262166, 589824, 10, 262167, 589824, 10, 262168, 589824, 10, 327704, 589824, 10, 327703, 589824, 10)
+layer_0/tile_data = PackedInt32Array(196629, 524288, 8, 196630, 655360, 8, 196631, 655360, 8, 196632, 655360, 8, 196633, 720896, 8, 262169, 720896, 10, 327705, 720896, 10, 393241, 720896, 11, 393240, 589824, 11, 393239, 589824, 11, 393238, 524288, 11, 327702, 327680, 10, 327701, 524288, 11, 262165, 524288, 9, 262166, 589824, 10, 262167, 589824, 10, 262168, 589824, 10, 327704, 589824, 10, 327703, 589824, 10, -196580, 524288, 25, -262116, 524288, 25, -131044, 524288, 27, -131043, 589824, 27, -131042, 589824, 27, -131041, 589824, 27, -262114, 589824, 30, -262115, 393216, 35, -196579, 393216, 35, -196578, 327680, 35, -196577, 327680, 35, -196576, 393216, 35, -262112, 589824, 30, -262113, 589824, 30, -262111, 589824, 30, -262110, 589824, 30, -196575, 327680, 35, -131040, 327680, 26, -196574, 589824, 30, -327653, 524288, 27, -327652, 327680, 26, -131039, 327680, 35, -131038, 327680, 35, -65504, 524288, 27, -65503, 589824, 27, -65502, 589824, 27, -65501, 589824, 27, -327651, 589824, 30, -327650, 589824, 30, -327649, 589824, 30, -262109, 589824, 30, -196573, 589824, 30, -131037, 393216, 35)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(-105, -93)
-scale = Vector2(1.1556, 1)
+scale = Vector2(1.34156, 1)
 texture = ExtResource("1_5mpdx")
 centered = false
 region_enabled = true
@@ -4483,7 +4495,10 @@ position = Vector2(-16, -16)
 position = Vector2(144, 56)
 
 [node name="Tree3" parent="Trees" instance=ExtResource("7_y17vl")]
-position = Vector2(240, 16)
+position = Vector2(331, 0)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("7_y17vl")]
+position = Vector2(303, 5)
 
 [node name="Tree4" parent="Trees" instance=ExtResource("7_y17vl")]
 position = Vector2(432, 40)
@@ -4498,6 +4513,15 @@ position = Vector2(0, -8)
 [node name="Bush2" parent="Bushes" instance=ExtResource("2_ffg02")]
 position = Vector2(232, 16)
 
+[node name="Bush5" parent="Bushes" instance=ExtResource("2_ffg02")]
+position = Vector2(503, 1)
+
+[node name="Bush6" parent="Bushes" instance=ExtResource("2_ffg02")]
+position = Vector2(515, 32)
+
+[node name="Bush7" parent="Bushes" instance=ExtResource("2_ffg02")]
+position = Vector2(504, 68)
+
 [node name="Bush3" parent="Bushes" instance=ExtResource("2_ffg02")]
 position = Vector2(88, 88)
 
@@ -4505,7 +4529,7 @@ position = Vector2(88, 88)
 position = Vector2(104, 96)
 
 [node name="Ghost" parent="." instance=ExtResource("8_bsydn")]
-position = Vector2(216, 56)
+position = Vector2(123, 58)
 
 [node name="Ghost2" parent="." instance=ExtResource("8_bsydn")]
 position = Vector2(154, 125)
@@ -4525,6 +4549,20 @@ position = Vector2(80, 0)
 
 [node name="Grass4" parent="Grass" instance=ExtResource("9_i51vj")]
 position = Vector2(64, 0)
+
+[node name="Grass22" parent="Grass" instance=ExtResource("9_i51vj")]
+z_index = 2
+position = Vector2(503, -42)
+
+[node name="Grass23" parent="Grass" instance=ExtResource("9_i51vj")]
+z_index = 2
+position = Vector2(480, -39)
+
+[node name="Grass24" parent="Grass" instance=ExtResource("9_i51vj")]
+position = Vector2(395, -54)
+
+[node name="Grass25" parent="Grass" instance=ExtResource("9_i51vj")]
+position = Vector2(485, -23)
 
 [node name="Grass10" parent="Grass" instance=ExtResource("9_i51vj")]
 position = Vector2(-8, 16)
@@ -4581,24 +4619,25 @@ position = Vector2(48, 96)
 position = Vector2(-16, 128)
 
 [node name="Bat3" parent="." instance=ExtResource("10_rt8iv")]
-position = Vector2(456, 88)
+position = Vector2(452, -9)
 
 [node name="Bat" parent="." instance=ExtResource("10_rt8iv")]
+position = Vector2(8, 48)
+
+[node name="Bat4" parent="." instance=ExtResource("10_rt8iv")]
 position = Vector2(8, 48)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(120, 72)
 zoom = Vector2(0.8, 0.8)
-limit_left = -35
-limit_top = -30
-limit_right = 1330
-limit_bottom = 190
 limit_smoothed = true
+position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+script = ExtResource("15_8nfv2")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BGAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_mc0t2")
 volume_db = -9.345
 autoplay = true
@@ -4611,13 +4650,8 @@ item = ExtResource("15_bg7fm")
 position = Vector2(280, 16)
 item = ExtResource("15_bg7fm")
 
-[node name="Seagull" type="AnimatedSprite2D" parent="."]
-z_index = 10
-position = Vector2(384, 60)
-sprite_frames = SubResource("SpriteFrames_o4sl3")
-animation = &"seagull"
-autoplay = "seagull"
-frame_progress = 0.17016
+[node name="Seagull" parent="." instance=ExtResource("18_gw6c6")]
+position = Vector2(383, 60)
 
 [node name="RockWater" type="AnimatedSprite2D" parent="."]
 position = Vector2(383, 73)
@@ -4648,34 +4682,124 @@ animation = &"campfire"
 autoplay = "campfire"
 frame_progress = 0.562667
 
-[node name="MeSinglesCamping16x16Mushrooms1" type="Sprite2D" parent="."]
+[node name="CutsceneEffect" parent="." instance=ExtResource("30_x2iwq")]
+
+[node name="NewQuest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_6uxku")
+
+[node name="WorldObjects" type="Node2D" parent="."]
+
+[node name="MeSinglesCamping16x16Mushrooms1" type="Sprite2D" parent="WorldObjects"]
 position = Vector2(280, 136)
 texture = ExtResource("23_201ga")
 
-[node name="MeSinglesCamping16x16Rock8" type="Sprite2D" parent="."]
+[node name="MeSinglesCamping16x16Rock8" type="Sprite2D" parent="WorldObjects"]
 position = Vector2(208, 88)
 texture = ExtResource("24_r7ybx")
 
-[node name="MeSinglesCamping16x16Sign5" type="Sprite2D" parent="."]
+[node name="MeSinglesCamping16x16Sign5" type="Sprite2D" parent="WorldObjects"]
 position = Vector2(344, 120)
 texture = ExtResource("25_ol6jo")
 
-[node name="MeSinglesCamping16x16Mushrooms2" type="Sprite2D" parent="."]
+[node name="MeSinglesCamping16x16Mushrooms2" type="Sprite2D" parent="WorldObjects"]
 position = Vector2(320, 112)
 texture = ExtResource("23_201ga")
 
-[node name="MeSinglesGarden16x16Bush3" type="Sprite2D" parent="."]
+[node name="MeSinglesGarden16x16Bush3" type="Sprite2D" parent="WorldObjects"]
 position = Vector2(344, 96)
 texture = ExtResource("26_1cldf")
 
-[node name="MeSinglesVillas16x16VillaYardFlowers5" type="Sprite2D" parent="."]
+[node name="MeSinglesVillas16x16VillaYardFlowers5" type="Sprite2D" parent="WorldObjects"]
 position = Vector2(288, 112)
 texture = ExtResource("27_c52jr")
 
-[node name="MeSinglesVillas16x16VillaYardProps3" type="Sprite2D" parent="."]
+[node name="MeSinglesVillas16x16VillaYardFlowers6" type="Sprite2D" parent="WorldObjects"]
+position = Vector2(481, 25)
+texture = ExtResource("27_c52jr")
+
+[node name="MeSinglesVillas16x16VillaYardProps3" type="Sprite2D" parent="WorldObjects"]
 position = Vector2(176, 72)
 texture = ExtResource("28_35g70")
 
-[node name="MeSinglesVillas16x16VillaYardProps19" type="Sprite2D" parent="."]
+[node name="MeSinglesVillas16x16VillaYardProps19" type="Sprite2D" parent="WorldObjects"]
 position = Vector2(320, 48)
 texture = ExtResource("29_sy0xq")
+
+[node name="MeSinglesCamping16x16Tree4" type="Sprite2D" parent="WorldObjects"]
+position = Vector2(262, -37)
+texture = ExtResource("32_la7dv")
+
+[node name="MeSinglesCamping16x16Tree5" type="Sprite2D" parent="WorldObjects"]
+position = Vector2(248, -15)
+texture = ExtResource("32_la7dv")
+
+[node name="MeSinglesCamping16x16Tree7" type="Sprite2D" parent="WorldObjects"]
+z_index = 1
+position = Vector2(449, 179)
+texture = ExtResource("32_la7dv")
+
+[node name="MeSinglesCamping16x16Tree9" type="Sprite2D" parent="WorldObjects"]
+z_index = 1
+position = Vector2(425, 162)
+texture = ExtResource("32_la7dv")
+
+[node name="MeSinglesCamping16x16Tree10" type="Sprite2D" parent="WorldObjects"]
+position = Vector2(495, 154)
+texture = ExtResource("32_la7dv")
+
+[node name="MeSinglesCamping16x16Tree11" type="Sprite2D" parent="WorldObjects"]
+z_index = 1
+position = Vector2(450, 218)
+texture = ExtResource("32_la7dv")
+
+[node name="MeSinglesCamping16x16Tree12" type="Sprite2D" parent="WorldObjects"]
+z_index = 1
+position = Vector2(508, 198)
+texture = ExtResource("32_la7dv")
+
+[node name="MeSinglesCamping16x16Tree6" type="Sprite2D" parent="WorldObjects"]
+z_index = 2
+position = Vector2(181, 53)
+texture = ExtResource("32_la7dv")
+
+[node name="MeSinglesCamping16x16Tree92" type="Sprite2D" parent="WorldObjects"]
+position = Vector2(448, 168)
+texture = ExtResource("33_134jb")
+
+[node name="MeSinglesCamping16x16Tree93" type="Sprite2D" parent="WorldObjects"]
+position = Vector2(502, 189)
+texture = ExtResource("33_134jb")
+
+[node name="MeSinglesCamping16x16Tree95" type="Sprite2D" parent="WorldObjects"]
+position = Vector2(378, 208)
+texture = ExtResource("33_134jb")
+
+[node name="MeSinglesCamping16x16Tree94" type="Sprite2D" parent="WorldObjects"]
+z_index = 1
+position = Vector2(412, 218)
+texture = ExtResource("33_134jb")
+
+[node name="Coyote" parent="." instance=ExtResource("38_usw3v")]
+position = Vector2(241, 182)
+
+[node name="InvisibleSpawnPoints" type="Node2D" parent="."]
+
+[node name="CoyotePre" type="Node2D" parent="InvisibleSpawnPoints"]
+position = Vector2(239, 183)
+
+[node name="CoyotePost" type="Node2D" parent="InvisibleSpawnPoints"]
+position = Vector2(274, 214)
+
+[node name="Player" type="Node2D" parent="InvisibleSpawnPoints"]
+
+[node name="PostBat" type="Node2D" parent="InvisibleSpawnPoints/Player"]
+position = Vector2(238, 153)
+
+[node name="Spawn" type="Node2D" parent="InvisibleSpawnPoints/Player"]
+position = Vector2(120, 70)
+
+[node name="wolf" parent="." instance=ExtResource("39_0m1t1")]
+position = Vector2(76, 72)
+
+[connection signal="button_up" from="CanvasLayer/SettingsButton" to="." method="_on_settings_button_button_up"]
+[connection signal="finished" from="BGAudio" to="." method="_on_bg_audio_finished"]
