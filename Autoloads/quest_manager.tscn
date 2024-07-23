@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://tdrup54b8me5"]
 
-[ext_resource type="Script" path="res://QuestManager.gd" id="1_j6jw4"]
+[ext_resource type="Script" path="res://Autoloads/QuestManager.gd" id="1_j6jw4"]
 
 [node name="QuestManager" type="Control"]
 layout_mode = 3

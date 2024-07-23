@@ -8,19 +8,25 @@ var current_line_index = 0
 
 var text_box
 var text_box_position: Vector2
+var textboxYOffset: int
 
 var character_position: Vector2
 var sfx: AudioStream
+var to_camera: Camera2D
 
 var is_dialog_active = false
 var can_advance_line = false
 
 signal dialog_finished()
 
-func start_dialog(position: Vector2, lines: Array, speech_sfx: AudioStream):
+func start_dialog(position: Vector2, lines: Array, speech_sfx: AudioStream, camera: Camera2D = null, textboxOffset:int = 0 ):
 	if is_dialog_active:
 		return
-
+	
+	to_camera = camera
+	
+	textboxYOffset = textboxOffset
+	
 	character_position = position
 	dialog_lines = lines
 	sfx = speech_sfx
@@ -38,7 +44,7 @@ func _update_text_box_position():
 		text_box_position.y -= 13
 	else:
 		text_box_position = character_position
-		text_box_position.y -= 0
+		text_box_position.y += textboxYOffset
 
 func _show_text_box():
 	text_box = text_box_scene.instantiate()
@@ -80,3 +86,6 @@ func end_dialog():
 	is_dialog_active = false
 	current_line_index = 0
 	dialog_finished.emit()
+
+func get_to_camera():
+	return to_camera

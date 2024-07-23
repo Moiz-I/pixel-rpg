@@ -1,0 +1,48 @@
+{
+  "character_name": "Coyote",
+  "dialogs": [
+	{
+	  "condition": "mushroom",
+	  "lines": [
+		{
+		  "speaker": "Coyote",
+		  "text": "'m afraid i cant let you pass without a good reason"
+		},
+		{
+		  "speaker": "Coyote",
+		  "text": "far too dangerous for a puny little fox like yourself"
+		},
+		{
+		  "speaker": "Player",
+		  "text": "hey!"
+		},
+	  ]
+	},
+	{
+	  "condition": "pre-forest",
+	  "lines": [
+		{
+		  "speaker": "Coyote",
+		  "text": "ahh looks like you got yourself a quest"
+		},
+		{
+		  "speaker": "Coyote",
+		  "text": "BUT BE WARNED! its a dangerous place out there"
+		},
+		{
+		  "speaker": "Player",
+		  "text": "im sure he's just exaggerating.."
+		},
+	  ]
+	},
+		{
+	  "condition": "pre-forest",
+	  "lines": [
+		{
+		  "speaker": "Coyote",
+		  "text": "looks like the forest got the best of you.. puny fox"
+		},
+	  ]
+	}
+  ]
+}

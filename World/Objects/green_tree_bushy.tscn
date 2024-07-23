@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj23klk4bbxrp"]
+
+[ext_resource type="Texture2D" uid="uid://jc0nbchb1mu8" path="res://World/monster hunter objects/green_tree_bushy.png" id="1_xe1yp"]
+[ext_resource type="Texture2D" uid="uid://cgxmagp3n6quw" path="res://Shadows/LargeShadow.png" id="2_au7rf"]
+
+[node name="GreenTreeBushy" type="StaticBody2D"]
+scale = Vector2(0.984373, 0.899999)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_xe1yp")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 74)
+scale = Vector2(2.50694, 2.375)
+texture = ExtResource("2_au7rf")

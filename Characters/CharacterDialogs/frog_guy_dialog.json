@@ -1,0 +1,32 @@
+{
+  "character_name": "FrogGuy",
+  "dialogs": [
+	{
+	  "condition": "mushroom",
+	  "lines": [
+		{
+		  "speaker": "FrogGuy",
+		  "text": "i need you to get red mushroom in forest west of here",
+		},
+	  ]
+	},
+	{
+	  "condition": "pre-forest",
+	  "lines": [
+		{
+		  "speaker": "FrogGuy",
+		  "text": "remember, west of here(over the bridge), find red mushroom",
+		},
+	  ]
+	},
+	{
+	  "condition": "post-forest",
+	  "lines": [
+		{
+		  "speaker": "FrogGuy",
+		  "text": "well i supppose you need a sword, find guy in snow east of here"
+		},
+	  ]
+	}
+  ]
+}

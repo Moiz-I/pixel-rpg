@@ -1,0 +1,74 @@
+[gd_scene load_steps=13 format=3 uid="uid://dhq5fsmtsfb73"]
+
+[ext_resource type="Texture2D" uid="uid://cyeru8dd7msqm" path="res://World/Beach_Seagull_Idle_Left_16x16.png" id="1_ax2g2"]
+[ext_resource type="PackedScene" uid="uid://bnin62s0s0rkj" path="res://Interaction/interaction_area.tscn" id="2_vtj1s"]
+[ext_resource type="Script" path="res://Dialog/seagull.gd" id="2_xj4mu"]
+[ext_resource type="Resource" uid="uid://8b5bbj5xqpyx" path="res://Dialog/seagull_dialog.tres" id="3_rupgk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssy2b"]
+atlas = ExtResource("1_ax2g2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34jaq"]
+atlas = ExtResource("1_ax2g2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maowh"]
+atlas = ExtResource("1_ax2g2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys4d0"]
+atlas = ExtResource("1_ax2g2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bg2y"]
+atlas = ExtResource("1_ax2g2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tub6"]
+atlas = ExtResource("1_ax2g2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o4sl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssy2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34jaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maowh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys4d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bg2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tub6")
+}],
+"loop": true,
+"name": &"seagull",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g5npu"]
+radius = 56.0
+
+[node name="Seagull" type="AnimatedSprite2D"]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_o4sl3")
+animation = &"seagull"
+autoplay = "seagull"
+frame_progress = 0.17016
+script = ExtResource("2_xj4mu")
+dialog = ExtResource("3_rupgk")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_vtj1s")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_g5npu")

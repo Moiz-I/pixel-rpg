@@ -1,0 +1,18 @@
+{
+  "character_name": "Wolf",
+  "dialogs": [
+	{
+	  "condition": "start",
+	  "lines": [
+		{
+		  "speaker": "Wolf",
+		  "text": "ahh a puny little fox.. in OUR territory"
+		},
+		{
+		  "speaker": "Wolf",
+		  "text": "KILL HIM"
+		},
+	  ]
+	},
+  ]
+}

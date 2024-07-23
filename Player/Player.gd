@@ -8,6 +8,10 @@ extends CharacterBody2D
 @export var ROLL_SPEED = SPEED * 1.5
 @export var debug_invincibility: bool = false
 
+var cutscene_target_distance = 150
+var cutscene_velocity = Vector2.DOWN * SPEED *0.6
+var cutscene_travelled_distance = 0
+
 var roll_vector = Vector2.DOWN
 var stats = PlayerStats
 
@@ -23,7 +27,8 @@ const PlayerHurtSound = preload("res://Player/player_hurt_sound.tscn")
 enum {
 	MOVE,
 	ROLL,
-	ATTACK 
+	ATTACK,
+	CUTSCENE
 }
 @export var state = MOVE
 
@@ -95,6 +100,20 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 func collect_item(item: InvItem):
 	inv.insert_item(item)
 	pickup_audio.play()
+	
+func start_cutscene():
+	state = CUTSCENE
+	cutscene_travelled_distance = 0
+	animation_tree.set("parameters/Idle/blend_position", Vector2.DOWN)
+	animation_state.travel("Run")
+
+func cutscene_state(delta):
+	velocity = cutscene_velocity
+	move_and_slide()
+	cutscene_travelled_distance += cutscene_velocity.length() * delta
+	if cutscene_travelled_distance >= cutscene_target_distance:
+		state = MOVE
+
 
 func _physics_process(delta):
 	if DialogManager.is_dialog_active:
@@ -107,6 +126,8 @@ func _physics_process(delta):
 			roll_state(delta)
 		ATTACK:
 			attack_state(delta)
+		CUTSCENE:
+			cutscene_state(delta)
 			
 
 		
