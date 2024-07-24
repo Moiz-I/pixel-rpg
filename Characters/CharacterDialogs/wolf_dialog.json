@@ -2,12 +2,26 @@
   "character_name": "Wolf",
   "dialogs": [
 	{
-	  "condition": "start",
+	  "condition": "wolf1",
 	  "lines": [
 		{
 		  "speaker": "Wolf",
 		  "text": "ahh a puny little fox.. in OUR territory"
 		},
+	  ]
+	},
+	{
+	  "condition": "wolf2",
+	  "lines": [
+		{
+		  "speaker": "Wolf",
+		  "text": "leaving the primal ways of our ancestors for WHAT? comfort?"
+		},
+	  ]
+	},
+	{
+	  "condition": "wolf3",
+	  "lines": [
 		{
 		  "speaker": "Wolf",
 		  "text": "KILL HIM"

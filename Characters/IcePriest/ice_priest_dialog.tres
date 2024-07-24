@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CharacterDialog" load_steps=2 format=3 uid="uid://dkwgo62tn2oog"]
+
+[ext_resource type="Script" path="res://Dialog/character_dialog.gd" id="1_4u0j1"]
+
+[resource]
+script = ExtResource("1_4u0j1")
+dialog_file = "res://Characters/CharacterDialogs/ice_priest_dialog.json"

@@ -5,10 +5,11 @@ signal quest_changed(quest_index: int)
 var quests: Array = [
 	#"mushroom",
 	#"pre-forest",
-	"wolf1",
-	"wolf2",
-	"post-forest",
-	"pre-bats",
+	#"wolf1",
+	#"wolf2",
+	#"wolf3",
+	"post-wolf",
+	"bats-fail",
 	"post-bats",
 ]
 
@@ -31,3 +32,8 @@ func get_current_quest() -> String:
 
 func is_quest_active(quest_name: String) -> bool:
 	return quest_name == get_current_quest()
+
+func set_quest(quest: String):
+	self.current_quest_index =  quests.find(quest, 0)
+	print("set quest: ", quest, self.current_quest_index)
+	

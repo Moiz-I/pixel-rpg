@@ -21,6 +21,7 @@ var run_target = Vector2.ZERO
 var is_returning = false
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var hitboxCollision = $Hitbox/CollisionShape2D
 
 func _ready():
 	randomize() #changes seed
@@ -28,6 +29,8 @@ func _ready():
 	animated_sprite.frame = randi() % animated_sprite.sprite_frames.get_frame_count("idle")
 	animated_sprite.play("idle")
 	animated_sprite.flip_h = is_flipped
+	if top:
+		hitboxCollision.disabled = true
 
 func _physics_process(delta):
 	if is_attacking:
@@ -46,6 +49,7 @@ func start_run():
 			run_target = global_position + Vector2(0, 50)
 		else:
 			run_target = global_position + Vector2(run_distance * (-1 if is_flipped else 1), 0)
+		initial_position = run_target	
 
 func perform_run(delta):
 	var direction = (run_target - global_position).normalized()
@@ -103,9 +107,10 @@ func trigger_run():
 		
 func start_wolf_dialog():
 	dialog.load_dialog()
-	var lines = dialog.get_dialog_by_condition("start")
+	var lines = dialog.get_dialog_by_condition(QuestManager.get_current_quest())
 	DialogManager.start_dialog(global_position, lines, speech_sound,null, 27) 
 	await DialogManager.dialog_finished
+	QuestManager.advance_quest()
 	print("dialog finished ", QuestManager.get_current_quest())
 	#if QuestManager.current_quest_index==0:
 		#QuestManager.advance_quest()

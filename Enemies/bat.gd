@@ -8,8 +8,13 @@ var loot_item = preload("res://Inventory/item.tscn")
 @export_range(0.0, 1.0) var friction = 200  # Friction factor
 @export var acceleration = 300
 
+@export var isIce: bool = false
+@export var isStationary: bool = false
+
+@onready var sprite_normal = $AnimatedSprite2D
+@onready var sprite_ice = $AnimatedSprite2DIce
+
 @onready var stats = $Stats
-@onready var sprite = $AnimatedSprite2D
 @onready var playerDetectionZone = $PlayerDetectionZone
 @onready var hurtbox = $Hurtbox
 @onready var softCollision = $SoftCollision
@@ -25,10 +30,21 @@ enum {
 }
 
 var state = IDLE
+var sprite: AnimatedSprite2D
 
 func _ready():
 	randomize() #changes seed
-	state = pick_random_state([IDLE, WANDER])
+	if isStationary:
+		state = IDLE
+	else:
+		state = pick_random_state([IDLE, WANDER])
+		
+	if isIce:
+		sprite = sprite_ice
+		sprite_normal.queue_free()
+	else:
+		sprite = sprite_normal
+		sprite_ice.queue_free()
 	sprite.frame = randf_range(0, sprite.sprite_frames.get_frame_count("Fly")-1)
 	sprite.flip_h = randi() % 2 == 0
 	
@@ -47,7 +63,7 @@ func _physics_process(delta: float) -> void:
 #			velocity = velocity.move_toward(Vector2.ZERO, friction * speed * delta)
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 			seek_player()
-			if wanderController.get_time_left()==0:
+			if wanderController.get_time_left()==0 and !isStationary:
 				update_wander()
 		WANDER:
 			seek_player( )
@@ -60,7 +76,7 @@ func _physics_process(delta: float) -> void:
 				update_wander()
 			
 		CHASE:
-			if DialogManager.is_dialog_active:
+			if DialogManager.is_dialog_active or isStationary:
 				return 
 				
 			var player = playerDetectionZone.player

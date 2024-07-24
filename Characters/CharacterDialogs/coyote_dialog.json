@@ -36,7 +36,7 @@
 	  ]
 	},
 		{
-	  "condition": "pre-forest",
+	  "condition": "post-wolf",
 	  "lines": [
 		{
 		  "speaker": "Coyote",

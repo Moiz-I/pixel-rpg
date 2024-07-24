@@ -13,6 +13,7 @@ func player_death():
 	for n in enemies.get_children():
 		enemies.remove_child(n)
 		n.queue_free()
+	QuestManager.set_quest("bats-fail")
 	SceneManager.swap_scenes(SceneRegistry.levels["game_start"],get_tree().root,self,"wipe_to_right")
 	player.respawn()	
 	
@@ -30,7 +31,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if bats_killed==2:
-		QuestManager.set_quest(1)
+		player.respawn()
+		QuestManager.set_quest("post-bats")
 		SceneManager.swap_scenes(SceneRegistry.levels["game_start"],get_tree().root,self,"wipe_to_right")	
 
 

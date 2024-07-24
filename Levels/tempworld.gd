@@ -4,17 +4,59 @@ extends Node2D
 @onready var frog_camera = $FrogGuy/Camera2D
 @onready var coyote = $Coyote
 @onready var coyote_post = $InvisibleSpawnPoints/CoyotePost
+@onready var player_spawn = $InvisibleSpawnPoints/Player/Spawn
+@onready var post_wolf = $InvisibleSpawnPoints/Player/PostWolf
+@onready var post_bats = $InvisibleSpawnPoints/Player/PostBats
+@onready var fail_tree_pos = $InvisibleSpawnPoints/TreeBatFail
 
 @onready var topWolf = $wolfTop
-@onready var wolfL1 = $wolfL1
-@onready var wolfL4 = $wolfL4
+@onready var wolfL2 = $wolfL2
+@onready var wolfR2 = $wolfL3
+@onready var ice_priest = $IcePriest
 
 @onready var cutscene_effect = $CutsceneEffect
 @onready var animation_player = $AnimationPlayer
+@onready var health_ui = $CanvasLayer/HealthUI
+@onready var snow_block_tree = $SnowBlockTrees
+@onready var cutscene_trigger_snow = $CutsceneTriggerSnow
+var bat_fail_tree = preload("res://World/Objects/blue_tree_small.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func player_death():
+	player.respawn()
+	if QuestManager.get_current_quest()=="post-wolf":
+		player.position = post_wolf.position
+		cutscene_effect.end_cutscene()
+		player_camera.offset.y = 0
+		health_ui.position.y = 8
+		print("df ", snow_block_tree)
+		if snow_block_tree != null:
+			snow_block_tree.queue_free()
+	else:
+		player.position = player_spawn.position
+
+func _ready():
+	player.connect("player_died", player_death)
 	QuestManager.connect("quest_changed", Callable(self, "_on_quest_changed"))
+	if QuestManager.get_current_quest()=="post-bats":
+		player.position = post_bats.position
+		player_camera.offset.y = -50
+		cutscene_effect.start_cutscene()
+		player.start_cutscene(0, Vector2.UP)
+		if cutscene_trigger_snow != null:
+			cutscene_trigger_snow.queue_free()
+		await ice_priest.start_priest_dialog()
+		cutscene_effect.end_cutscene()
+		player_camera.offset.y = 0
+	if QuestManager.get_current_quest()=="bats-fail":
+		player.position = post_bats.position
+		player_camera.offset.y = -50
+		cutscene_effect.start_cutscene()
+		player.start_cutscene(0, Vector2.UP)
+		await get_tree().create_timer(1).timeout
+		await ice_priest.start_priest_dialog()
+		#var fail_tree = bat_fail_tree.instantiate()
+		#get_tree().a
+		#fail_tree.position = fail_tree_pos.position
 
 func _on_quest_changed(quest_index: int):
 	if quest_index == 1:  # "pre-forest" quest
@@ -36,13 +78,31 @@ func get_input():
 		Globals.open_settings_menu()
 	if Input.is_action_just_pressed("ui_accept"):
 		#wolf.trigger_attack()
-		player.start_cutscene()
+		player.start_cutscene(150, Vector2.DOWN)
 		cutscene_effect.start_cutscene()
 		await get_tree().create_timer(3).timeout
 		animation_player.play("wolf_attack")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	await topWolf.start_wolf_dialog()
-	await wolfL1.trigger_attack()
-	await wolfL4.trigger_attack()
+	if anim_name=="wolf_attack":
+		await topWolf.start_wolf_dialog() #wolf1
+		wolfL2.trigger_attack()
+		await get_tree().create_timer(1).timeout
+		await topWolf.start_wolf_dialog() #wolf2
+		await wolfR2.trigger_attack()
+		await get_tree().create_timer(1).timeout
+		await topWolf.start_wolf_dialog() #wolf3
+		wolfL2.trigger_attack()
+
+	if anim_name=="snow":
+		await ice_priest.start_priest_dialog()
+		print("change scene")
+
+func _on_cutscene_trigger_snow_body_entered(body: Node2D) -> void:
+	player.start_cutscene(80, Vector2.UP)
+	cutscene_effect.start_cutscene()
+	await get_tree().create_timer(1.4).timeout
+	animation_player.play("snow")
+	#start dialog
+	

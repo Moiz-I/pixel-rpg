@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://dkia5061qq1ci"]
+[gd_scene load_steps=28 format=3 uid="uid://dkia5061qq1ci"]
 
 [ext_resource type="Texture2D" uid="uid://cuaqogobivdpp" path="res://Characters/Wolf/Wolf Sprite Sheet.png" id="1_s82tr"]
 [ext_resource type="Script" path="res://Characters/Wolf/wolf.gd" id="1_tlcsq"]
 [ext_resource type="Resource" uid="uid://cct2dion461fn" path="res://Characters/Wolf/wolf_dialog.tres" id="2_qb7g3"]
+[ext_resource type="PackedScene" uid="uid://5e1srmlcswn5" path="res://Boxes and Collisions/hitbox.tscn" id="4_ex2eh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mla58"]
 atlas = ExtResource("1_s82tr")
@@ -169,6 +170,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvtgp"]
+radius = 22.0
+
 [node name="wolf" type="CharacterBody2D"]
 script = ExtResource("1_tlcsq")
 dialog = ExtResource("2_qb7g3")
@@ -177,6 +181,16 @@ dialog = ExtResource("2_qb7g3")
 sprite_frames = SubResource("SpriteFrames_1eqf6")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.225905
+
+[node name="Hitbox" parent="." instance=ExtResource("4_ex2eh")]
+collision_layer = 64
+collision_mask = 128
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-1, 21)
+shape = SubResource("CircleShape2D_lvtgp")
+debug_color = Color(0.909804, 0.6, 0.701961, 0.419608)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+
+[editable path="Hitbox"]

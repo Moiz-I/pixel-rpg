@@ -8,8 +8,8 @@ extends CharacterBody2D
 @export var ROLL_SPEED = SPEED * 1.5
 @export var debug_invincibility: bool = false
 
-var cutscene_target_distance = 150
-var cutscene_velocity = Vector2.DOWN * SPEED *0.6
+var cutscene_target_distance: int # 150
+var cutscene_velocity: Vector2 
 var cutscene_travelled_distance = 0
 
 var roll_vector = Vector2.DOWN
@@ -101,11 +101,15 @@ func collect_item(item: InvItem):
 	inv.insert_item(item)
 	pickup_audio.play()
 	
-func start_cutscene():
+func start_cutscene(target_distance: int, direction: Vector2):
+	cutscene_target_distance = target_distance
+	cutscene_velocity = direction * SPEED *0.6
 	state = CUTSCENE
 	cutscene_travelled_distance = 0
-	animation_tree.set("parameters/Idle/blend_position", Vector2.DOWN)
+	animation_tree.set("parameters/Idle/blend_position", direction)
 	animation_state.travel("Run")
+	if target_distance==0:
+		animation_state.travel("Idle")
 
 func cutscene_state(delta):
 	velocity = cutscene_velocity

@@ -1,0 +1,32 @@
+{
+  "character_name": "IcePriest",
+  "dialogs": [
+	{
+	  "condition": "post-wolf",
+	  "lines": [
+		{
+		  "speaker": "IcePriest",
+		  "text": "to earn it, you must test your strength"
+		},
+	  ]
+	},
+	{
+	  "condition": "bats-fail",
+	  "lines": [
+		{
+		  "speaker": "IcePriest",
+		  "text": "you must try again"
+		},
+	  ]
+	},
+	{
+	  "condition": "post-bats",
+	  "lines": [
+		{
+		  "speaker": "IcePriest",
+		  "text": "well done, you may keep the sword"
+		},
+	  ]
+	},
+  ]
+}
