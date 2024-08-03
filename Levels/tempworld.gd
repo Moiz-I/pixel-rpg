@@ -19,11 +19,16 @@ extends Node2D
 @onready var health_ui = $CanvasLayer/HealthUI
 @onready var snow_block_tree = $SnowBlockTrees
 @onready var cutscene_trigger_snow = $CutsceneTriggerSnow
+@onready var cutscene_trigger_wolf = $CutsceneTriggerWolf
 var bat_fail_tree = preload("res://World/Objects/blue_tree_small.tscn")
+@onready var color_rect = $CanvasLayer/ColorRect
 
 func player_death():
 	player.respawn()
 	if QuestManager.get_current_quest()=="post-wolf":
+		color_rect.visible = true
+		await get_tree().create_timer(2).timeout
+		color_rect.visible = false
 		player.position = post_wolf.position
 		cutscene_effect.end_cutscene()
 		player_camera.offset.y = 0
@@ -35,7 +40,9 @@ func player_death():
 		player.position = player_spawn.position
 
 func _ready():
+	player.debug_invincibility = false
 	player.connect("player_died", player_death)
+	player.position = player_spawn.position
 	QuestManager.connect("quest_changed", Callable(self, "_on_quest_changed"))
 	if QuestManager.get_current_quest()=="post-bats":
 		player.position = post_bats.position
@@ -76,16 +83,17 @@ func _process(delta: float) -> void:
 func get_input():
 	if Input.is_action_just_pressed("open_settings"):
 		Globals.open_settings_menu()
-	if Input.is_action_just_pressed("ui_accept"):
-		#wolf.trigger_attack()
-		player.start_cutscene(150, Vector2.DOWN)
-		cutscene_effect.start_cutscene()
-		await get_tree().create_timer(3).timeout
-		animation_player.play("wolf_attack")
+	#if Input.is_action_just_pressed("ui_accept"):
+		##wolf.trigger_attack()
+		#player.start_cutscene(150, Vector2.DOWN)
+		#cutscene_effect.start_cutscene()
+		#await get_tree().create_timer(3).timeout
+		#animation_player.play("wolf_attack")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name=="wolf_attack":
+		player.default_health()
 		await topWolf.start_wolf_dialog() #wolf1
 		wolfL2.trigger_attack()
 		await get_tree().create_timer(1).timeout
@@ -106,3 +114,19 @@ func _on_cutscene_trigger_snow_body_entered(body: Node2D) -> void:
 	animation_player.play("snow")
 	#start dialog
 	
+
+
+func _on_cutscene_trigger_wolf_body_entered(body: Node2D) -> void:
+		MusicPlayer.transition("storm_night")
+		player.start_cutscene(150, Vector2.DOWN)
+		cutscene_effect.start_cutscene()
+		await get_tree().create_timer(3).timeout
+		animation_player.play("wolf_attack")
+
+
+func _on_cutscene_trigger_forest_body_entered(body: Node2D) -> void:
+	MusicPlayer.transition("national_park")
+
+
+func _on_cutscene_trigger_snow_biome_body_entered(body: Node2D) -> void:
+	MusicPlayer.transition("ice_village")

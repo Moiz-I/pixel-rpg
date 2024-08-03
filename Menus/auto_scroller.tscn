@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://c3idsj77kmk8h"]
+
+[ext_resource type="Texture2D" uid="uid://cidgla3oqkmoa" path="res://Menus/MountainsLayers/sky.png" id="1_m6rvc"]
+[ext_resource type="Shader" path="res://Menus/auto_scroller.gdshader" id="2_s8vwb"]
+[ext_resource type="Texture2D" uid="uid://bbw3l7ns3qacb" path="res://Menus/MountainsLayers/far-clouds.png" id="3_hfew3"]
+[ext_resource type="Texture2D" uid="uid://nei8g3fblyr7" path="res://Menus/MountainsLayers/near-clouds.png" id="4_w07ck"]
+[ext_resource type="Texture2D" uid="uid://bcnsdxg457gf4" path="res://Menus/MountainsLayers/far-mountains.png" id="5_f3q5h"]
+[ext_resource type="Texture2D" uid="uid://cub65x0y0ym76" path="res://Menus/MountainsLayers/mountains.png" id="6_leaik"]
+[ext_resource type="Texture2D" uid="uid://dxjs1s2ge2yl0" path="res://Menus/MountainsLayers/trees.png" id="7_f76io"]
+[ext_resource type="AudioStream" uid="uid://lfkxxo68r08r" path="res://Menus/Music/summer nights.ogg" id="8_oxnix"]
+[ext_resource type="Texture2D" uid="uid://bw7ukl06hh8ax" path="res://Menus/foxtale_logo.png" id="9_1xp4v"]
+[ext_resource type="FontFile" uid="uid://b8dn72rfudnoc" path="res://Menus/Daydream.ttf" id="10_4wgta"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jv7m2"]
+shader = ExtResource("2_s8vwb")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qattk"]
+shader = ExtResource("2_s8vwb")
+shader_parameter/direction = Vector2(3, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_maog4"]
+shader = ExtResource("2_s8vwb")
+shader_parameter/direction = Vector2(6, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cpwus"]
+shader = ExtResource("2_s8vwb")
+shader_parameter/direction = Vector2(6, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vc8l8"]
+shader = ExtResource("2_s8vwb")
+shader_parameter/direction = Vector2(10, 0)
+shader_parameter/speed_scale = 0.02
+
+[node name="AutoScroller" type="Node2D"]
+
+[node name="BackFixedTuxture" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_m6rvc")
+
+[node name="TextureRectFarClouds" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_jv7m2")
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("3_hfew3")
+stretch_mode = 1
+
+[node name="TextureRectNearClouds" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qattk")
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("4_w07ck")
+stretch_mode = 1
+
+[node name="TextureRectFarMountains" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_maog4")
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("5_f3q5h")
+stretch_mode = 1
+
+[node name="TextureRectMountains" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_cpwus")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_leaik")
+stretch_mode = 1
+
+[node name="TextureRectTrees" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_vc8l8")
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("7_f76io")
+stretch_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_oxnix")
+autoplay = true
+
+[node name="FoxtaleLogo" type="Sprite2D" parent="."]
+position = Vector2(192, 96)
+scale = Vector2(1.18056, 1.18056)
+texture = ExtResource("9_1xp4v")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 104.0
+offset_top = 152.0
+offset_right = 221.0
+offset_bottom = 177.0
+theme_override_fonts/font = ExtResource("10_4wgta")
+theme_override_font_sizes/font_size = 8
+text = "press E to start
+"

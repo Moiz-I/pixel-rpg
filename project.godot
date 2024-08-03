@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GodotGameTemplate"
-run/main_scene="res://Menus/start_screen.tscn"
+run/main_scene="res://Menus/opening_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -24,6 +24,7 @@ DialogManager="*res://Dialog/DialogManager.gd"
 InteractionManager="*res://Interaction/InteractionManager.tscn"
 QuestManager="*res://Autoloads/quest_manager.tscn"
 CameraTransition="*res://Autoloads/camera_transition.tscn"
+MusicPlayer="*res://Music and Sounds/music/music_player.tscn"
 
 [display]
 
@@ -40,6 +41,10 @@ window/stretch/scale_mode="integer"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={}
 
 [filesystem]
 
@@ -143,7 +148,10 @@ open_settings={
 2d_physics/layer_4="EnemyHurtbox"
 2d_physics/layer_5="EnvironmentHitbox"
 2d_physics/layer_6="Enemy"
-2d_physics/layer_7="Enem"
+2d_physics/layer_7="EnemyHitbox"
+2d_physics/layer_8="PlayerHurtbox"
+2d_physics/layer_9="SoftCollisions"
+2d_physics/layer_10="PlayerCollisions"
 
 [rendering]
 

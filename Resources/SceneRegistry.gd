@@ -12,6 +12,8 @@ const main_scenes = {
 
 const levels = {
 	#"game_start" : "res://Gameplay/Levels/Level01.tscn"
+	"opening_scene": "res://Menus/opening_scene.tscn",
+	"start_scene": "res://Menus/parallax.tscn",
 	"game_start" : "res://Levels/tempworld.tscn",
 	"training_arena": "res://Levels/training_arena.tscn"
 }

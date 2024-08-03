@@ -3,11 +3,10 @@ extends Control
 signal quest_changed(quest_index: int)
 
 var quests: Array = [
-	#"mushroom",
-	#"pre-forest",
-	#"wolf1",
-	#"wolf2",
-	#"wolf3",
+	"mushroom",
+	"wolf1",
+	"wolf2",
+	"wolf3",
 	"post-wolf",
 	"bats-fail",
 	"post-bats",

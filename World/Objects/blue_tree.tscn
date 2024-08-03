@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://uabff4hx7xe6"]
+
+[ext_resource type="Texture2D" uid="uid://1lmxwrk5oa4f" path="res://World/monster hunter objects/teal_tree.png" id="1_t3k31"]
+[ext_resource type="Texture2D" uid="uid://cgxmagp3n6quw" path="res://Shadows/LargeShadow.png" id="2_x2mfe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p4jxg"]
+radius = 64.0
+height = 128.0
+
+[node name="BlueTree" type="StaticBody2D"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_t3k31")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 74)
+scale = Vector2(2.50694, 2.375)
+texture = ExtResource("2_x2mfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
+shape = SubResource("CapsuleShape2D_p4jxg")

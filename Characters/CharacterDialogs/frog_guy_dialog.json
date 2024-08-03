@@ -2,20 +2,46 @@
   "character_name": "FrogGuy",
   "dialogs": [
 	{
-	  "condition": "mushroom",
+	  "condition": "start",
 	  "lines": [
 		{
 		  "speaker": "FrogGuy",
-		  "text": "i need you to get red mushroom in forest west of here",
+		  "text": "where is that damn fox",
 		},
 	  ]
 	},
 	{
-	  "condition": "pre-forest",
+	  "condition": "start2",
 	  "lines": [
 		{
 		  "speaker": "FrogGuy",
-		  "text": "remember, west of here(over the bridge), find red mushroom",
+		  "text": "WAKEEEE UPPPPP",
+		},
+	  ]
+	},
+	{
+	  "condition": "mushroom",
+	  "lines": [
+		{
+		  "speaker": "FrogGuy",
+		  "text": "about time",
+		},
+		{
+		  "speaker": "FrogGuy",
+		  "text": "i need you to find a red mushroom in the forest west of here",
+		},
+		{
+		  "speaker": "FrogGuy",
+		  "text": "but be careful, there's some bad stuff in there",
+		},
+	  ]
+	},
+	{
+	  "condition": "wolf1",
+	  "lines": [
+		{
+		  "speaker": "FrogGuy",
+		  "text": "remember, west of here(over the bridge), find the red mushroom",
 		},
 	  ]
 	},
@@ -24,7 +50,7 @@
 	  "lines": [
 		{
 		  "speaker": "FrogGuy",
-		  "text": "well i supppose you need a sword, find guy in snow east of here"
+		  "text": "well i supppose you need a sword, go find the old master on the snowy mountain east of here"
 		},
 	  ]
 	}

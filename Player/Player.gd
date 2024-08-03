@@ -28,6 +28,7 @@ enum {
 	MOVE,
 	ROLL,
 	ATTACK,
+	BUGNET,
 	CUTSCENE
 }
 @export var state = MOVE
@@ -37,6 +38,10 @@ signal player_died
 func on_player_death():
 	player_died.emit()
 	#queue_free()
+	
+func default_health():
+	stats.max_health = 3
+	stats.reset_health()
 	
 func respawn():
 	stats.reset_health()
@@ -56,6 +61,7 @@ func get_input():
 		animation_tree.set("parameters/Idle/blend_position", input_direction)
 		animation_tree.set("parameters/Run/blend_position", input_direction)
 		animation_tree.set("parameters/Attack/blend_position", input_direction)
+		animation_tree.set("parameters/BugNet/blend_position", input_direction)
 		animation_tree.set("parameters/Roll/blend_position", input_direction)
 		animation_state.travel("Run")
 		input_direction = input_direction.normalized()
@@ -71,12 +77,19 @@ func get_input():
 	
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
+		
+	if Input.is_action_just_pressed("ui_accept"):
+		state = BUGNET
 
 func attack_state(delta):
 	velocity = Vector2.ZERO
 	animation_state.travel("Attack")
 	#velocity = velocity.move_toward(Vector2.ZERO, friction/2 * delta)
 	#move_and_slide()
+	
+func bug_net_state(delta):
+	velocity = Vector2.ZERO
+	animation_state.travel("BugNet")
 	
 func roll_state(delta):
 	var v = roll_vector * ROLL_SPEED
@@ -85,7 +98,7 @@ func roll_state(delta):
 	move_and_slide()
 	
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
-	if anim_name in ["AttackRight", "AttackLeft", "AttackUp", "AttackDown", "RollDown", "RollLeft", "RollRight", "RollUp"]:
+	if anim_name in ["AttackRight", "AttackLeft", "AttackUp", "AttackDown", "RollDown", "RollLeft", "RollRight", "RollUp", "bug_net_right"]:
 		state = MOVE
 		
 func _on_hurtbox_area_entered(area: Area2D) -> void:
@@ -98,7 +111,12 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		get_parent().add_child(playerHurtSound)
 
 func collect_item(item: InvItem):
-	inv.insert_item(item)
+	if item.name=="heart_red":
+		stats.health +=1
+	if item.name=="heart_gold":
+		stats.max_health +=1
+		stats.reset_health()
+	#inv.insert_item(item)
 	pickup_audio.play()
 	
 func start_cutscene(target_distance: int, direction: Vector2):
@@ -130,6 +148,8 @@ func _physics_process(delta):
 			roll_state(delta)
 		ATTACK:
 			attack_state(delta)
+		BUGNET:
+			bug_net_state(delta)
 		CUTSCENE:
 			cutscene_state(delta)
 			

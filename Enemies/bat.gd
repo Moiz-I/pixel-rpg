@@ -22,6 +22,8 @@ var loot_item = preload("res://Inventory/item.tscn")
 const deathEffect = preload("res://Effects/enemy_death_effect.tscn")
 const jamItem = preload("res://Inventory/Items/jam.tres")
 const watermelonItem = preload("res://Inventory/Items/watermelon.tres")
+const heart_red = preload("res://Inventory/Items/heart_red.tres")
+const heart_gold = preload("res://Inventory/Items/heart_gold.tres")
 
 enum {
 	IDLE,
@@ -49,8 +51,10 @@ func _ready():
 	sprite.flip_h = randi() % 2 == 0
 	
 #	print("l ", loot_table.table)
-	test_table.add_item(jamItem, 0.2)
-	test_table.add_item(watermelonItem, 0.8)
+	#test_table.add_item(jamItem, 0.2)
+	#test_table.add_item(watermelonItem, 0.8)
+	test_table.add_item(heart_red, 0.6)
+	test_table.add_item(heart_gold, 0.4)
 
 func _physics_process(delta: float) -> void:
 #	apply_friction(delta)
@@ -114,10 +118,12 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	hurtbox.create_hit_effect()
 	
 func create_death_effect():
+	randomize()
 	var effect = deathEffect.instantiate()
 	get_parent().add_child(effect)
 	effect.position = position
-	drop_loot()
+	if randi() % 2 == 0 and (QuestManager.get_current_quest()=="post-wolf" or QuestManager.get_current_quest()=="bats-fail"):
+		drop_loot()
 	
 func drop_loot():
 	loot_item = loot_item.instantiate()

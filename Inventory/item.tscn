@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://0wqckqt4mui8"]
+[gd_scene load_steps=5 format=3 uid="uid://0wqckqt4mui8"]
 
 [ext_resource type="Script" path="res://Inventory/item.gd" id="1_el6s8"]
 [ext_resource type="Texture2D" uid="uid://dh4g4cp5btyse" path="res://Inventory/Items/Jam.png" id="2_s2qbn"]
+[ext_resource type="Texture2D" uid="uid://bxnrvyathwb3p" path="res://Shadows/SmallShadow.png" id="3_5mmye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bn2kw"]
 radius = 5.0
 
 [node name="Item" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_el6s8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -20,6 +22,10 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_bn2kw")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("3_5mmye")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

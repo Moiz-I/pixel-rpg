@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnolvmtsfw1rk"
+path="res://.godot/imported/Fantasy Medieval.mp3-541ba942eabb0a61eccf15a4fe784645.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/music/Fantasy Medieval.mp3"
+dest_files=["res://.godot/imported/Fantasy Medieval.mp3-541ba942eabb0a61eccf15a4fe784645.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

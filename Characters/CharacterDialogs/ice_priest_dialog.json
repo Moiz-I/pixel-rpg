@@ -6,7 +6,11 @@
 	  "lines": [
 		{
 		  "speaker": "IcePriest",
-		  "text": "to earn it, you must test your strength"
+		  "text": "welcome, young fox"
+		},
+		{
+		  "speaker": "IcePriest",
+		  "text": "you must test your strength, if you wish to venture further in the forest"
 		},
 	  ]
 	},

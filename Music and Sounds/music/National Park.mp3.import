@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buutpfykvgpk"
+path="res://.godot/imported/National Park.mp3-f705fb6130b7b4488d95174349572628.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/music/National Park.mp3"
+dest_files=["res://.godot/imported/National Park.mp3-f705fb6130b7b4488d95174349572628.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

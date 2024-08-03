@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("2_xk7g8")
-table = null
+table = Array[Dictionary]([])

@@ -17,7 +17,6 @@ func _ready():
 			#current_condition = "pre-forest"
 		#2:
 			#current_condition = "post-forest"
-		
 	interaction_area.interact = Callable(self, "_on_interact")
 	
 func _on_interact():
@@ -31,3 +30,15 @@ func _on_interact():
 		QuestManager.advance_quest()
 		#print("switching wscenes ", self)
 		#SceneManager.swap_scenes(SceneRegistry.levels["training_arena"],get_tree().root,get_parent(),"wipe_to_right")	
+
+func start_initial_dialog(condition: String):
+	dialog.load_dialog()
+	var lines = dialog.get_dialog_by_condition(condition)
+	DialogManager.start_dialog(global_position, lines, speech_sound,null, 0) 
+	await DialogManager.dialog_finished
+	#if QuestManager.get_current_quest() != "post-bats":
+		#SceneManager.swap_scenes(SceneRegistry.levels["training_arena"],get_tree().root,get_parent(),"wipe_to_right")	
+	print("dialog finished ", QuestManager.get_current_quest())
+	#if QuestManager.current_quest_index==0:
+		#QuestManager.advance_quest()
+

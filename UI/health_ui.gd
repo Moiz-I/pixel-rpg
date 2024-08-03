@@ -2,6 +2,7 @@ extends Control
 
 @onready var heartUIEmpty = $HeartUIEmpty
 @onready var heartUIFull = $HeartUIFull
+@onready var heartUIGold = $HeartUIGold
 
 
 var hearts = 4:
@@ -17,7 +18,10 @@ func set_max_hearts(value):
 func set_hearts(value):
 	hearts = value
 	if heartUIFull:
-		heartUIFull.size.x = hearts * 15
+		heartUIFull.size.x = min(hearts, 3) * 15
+	if heartUIGold:
+		heartUIGold.size.x = max((hearts - 3), 0) * 15
+		
 		
 func _ready():
 	self.max_hearts = PlayerStats.max_health #use self to make sure call setter

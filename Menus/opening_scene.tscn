@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://5k6tr4kvittf"]
+
+[ext_resource type="Texture2D" uid="uid://b44h6qqurqdjs" path="res://Menus/buildspace.png" id="1_5hen4"]
+[ext_resource type="Script" path="res://Menus/opening_scene.gd" id="1_cge0u"]
+[ext_resource type="Texture2D" uid="uid://gd45ue3auoox" path="res://Menus/moiz.png" id="2_vuxa6"]
+[ext_resource type="FontFile" uid="uid://d3pdb27vna1j4" path="res://Dialog/Pixellari.ttf" id="3_kinww"]
+
+[sub_resource type="Animation" id="Animation_carrp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_je5e0"]
+resource_name = "start"
+length = 7.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.5, 3, 4, 5.5, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buildspace:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tu8mg"]
+_data = {
+"RESET": SubResource("Animation_carrp"),
+"start": SubResource("Animation_je5e0")
+}
+
+[node name="opening_scene" type="Node2D"]
+script = ExtResource("1_cge0u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 328.0
+offset_bottom = 192.0
+color = Color(0, 0, 0, 1)
+
+[node name="Buildspace" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_5hen4")
+centered = false
+
+[node name="Moiz" type="Sprite2D" parent="."]
+texture = ExtResource("2_vuxa6")
+centered = false
+
+[node name="Label" type="Label" parent="Moiz"]
+offset_left = 120.0
+offset_top = 40.0
+offset_right = 254.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("3_kinww")
+text = "a game by"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tu8mg")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
