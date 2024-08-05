@@ -3,7 +3,7 @@ extends Node2D
 var bats_killed: int = 0
 const SPAWN_RANGE: float = 100
 
-var bat_object = preload("res://Enemies/bat.tscn")
+var bat_object = preload("res://Entities/Enemies/bat.tscn")
 
 @onready var counter_label = $CanvasLayer/Control/Label
 @onready var player = $Player

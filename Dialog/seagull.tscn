@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dhq5fsmtsfb73"]
 
-[ext_resource type="Texture2D" uid="uid://cyeru8dd7msqm" path="res://World/Beach_Seagull_Idle_Left_16x16.png" id="1_ax2g2"]
-[ext_resource type="PackedScene" uid="uid://bnin62s0s0rkj" path="res://Interaction/interaction_area.tscn" id="2_vtj1s"]
+[ext_resource type="Texture2D" uid="uid://cyeru8dd7msqm" path="res://Entities/World/Beach_Seagull_Idle_Left_16x16.png" id="1_ax2g2"]
+[ext_resource type="PackedScene" uid="uid://bnin62s0s0rkj" path="res://Utilities/Interaction/interaction_area.tscn" id="2_vtj1s"]
 [ext_resource type="Script" path="res://Dialog/seagull.gd" id="2_xj4mu"]
 [ext_resource type="Resource" uid="uid://8b5bbj5xqpyx" path="res://Dialog/seagull_dialog.tres" id="3_rupgk"]
 

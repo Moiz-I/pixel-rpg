@@ -10,8 +10,8 @@ extends Node2D
 
 #
 #
-#var COIN_SCENE = preload("res://Inventory/item.tscn")
-#var jam = preload("res://Inventory/Items/jam.tres")
+#var COIN_SCENE = preload("res://Entities/Inventory/item.tscn")
+#var jam = preload("res://Entities/Inventory/Items/jam.tres")
 #@onready var player = $Player
 #
 #const MIN_X =  10.0

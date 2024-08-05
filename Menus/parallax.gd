@@ -11,7 +11,7 @@ extends Node2D
 @onready var sleeping = $world/Sleeping
 @onready var awake = $world/Awake
 @onready var frog_guy = $FrogGuy
-var playerObject = preload("res://Player/player.tscn")
+var playerObject = preload("res://Entities/Player/player.tscn")
 @onready var player = $Player
 
 @onready var audio = $AudioStreamPlayer

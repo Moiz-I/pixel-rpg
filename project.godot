@@ -10,21 +10,21 @@ config_version=5
 
 [application]
 
-config/name="GodotGameTemplate"
+config/name="Pixel RPG"
 run/main_scene="res://Menus/opening_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Globals="*res://Autoloads/Globals.gd"
-SceneManager="*res://Autoloads/SceneManager.gd"
-PlayerStats="*res://Player/player_stats.tscn"
+Globals="*res://Utilities/Autoloads/Globals.gd"
+SceneManager="*res://Utilities/Autoloads/SceneManager.gd"
+PlayerStats="*res://Entities/Player/player_stats.tscn"
 DialogManager="*res://Dialog/DialogManager.gd"
-InteractionManager="*res://Interaction/InteractionManager.tscn"
-QuestManager="*res://Autoloads/quest_manager.tscn"
-CameraTransition="*res://Autoloads/camera_transition.tscn"
-MusicPlayer="*res://Music and Sounds/music/music_player.tscn"
+InteractionManager="*res://Utilities/Interaction/InteractionManager.tscn"
+QuestManager="*res://Utilities/Autoloads/quest_manager.tscn"
+CameraTransition="*res://Utilities/Autoloads/camera_transition.tscn"
+MusicPlayer="*res://Assets/Music and Sounds/music/music_player.tscn"
 
 [display]
 
@@ -137,6 +137,11 @@ advance_dialog={
 open_settings={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+tool_switch={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"echo":false,"script":null)
 ]
 }
 

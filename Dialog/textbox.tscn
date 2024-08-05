@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c64oeremcwndq"]
 
-[ext_resource type="Texture2D" uid="uid://1b6jgxf3kqoh" path="res://Dialog/textbox2.png" id="1_gdag5"]
+[ext_resource type="Texture2D" uid="uid://1b6jgxf3kqoh" path="res://Dialog/Assets/textbox2.png" id="1_gdag5"]
 [ext_resource type="Script" path="res://Dialog/textbox.gd" id="1_yi50e"]
-[ext_resource type="FontFile" uid="uid://d3pdb27vna1j4" path="res://Dialog/Pixellari.ttf" id="2_xmseo"]
-[ext_resource type="Texture2D" uid="uid://dge86u0m5rekb" path="res://Dialog/textbox-tip.png" id="3_c8w7h"]
-[ext_resource type="Texture2D" uid="uid://wkv8thbcxi0v" path="res://Dialog/next-line.png" id="4_j4lqd"]
+[ext_resource type="FontFile" uid="uid://d3pdb27vna1j4" path="res://Assets/Fonts/Pixellari.ttf" id="2_xmseo"]
+[ext_resource type="Texture2D" uid="uid://dge86u0m5rekb" path="res://Dialog/Assets/textbox-tip.png" id="3_c8w7h"]
+[ext_resource type="Texture2D" uid="uid://wkv8thbcxi0v" path="res://Dialog/Assets/next-line.png" id="4_j4lqd"]
 
 [node name="textbox" type="MarginContainer"]
 z_index = 3

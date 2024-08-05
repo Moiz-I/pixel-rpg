@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xblbi1qwxxgn"
+path="res://.godot/imported/ice_village.mp3-55e1e4a77749410495f23073d67b3e70.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music and Sounds/music/ice_village.mp3"
+dest_files=["res://.godot/imported/ice_village.mp3-55e1e4a77749410495f23073d67b3e70.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

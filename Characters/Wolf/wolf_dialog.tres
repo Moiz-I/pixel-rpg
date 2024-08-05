@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="CharacterDialog" load_steps=2 format=3 uid="uid://cct2dion461fn"]
-
-[ext_resource type="Script" path="res://Dialog/character_dialog.gd" id="1_obw87"]
-
-[resource]
-script = ExtResource("1_obw87")
-dialog_file = "res://Characters/CharacterDialogs/wolf_dialog.json"
