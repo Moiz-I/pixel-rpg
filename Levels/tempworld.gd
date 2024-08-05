@@ -20,7 +20,7 @@ extends Node2D
 @onready var snow_block_tree = $SnowBlockTrees
 @onready var cutscene_trigger_snow = $CutsceneTriggerSnow
 @onready var cutscene_trigger_wolf = $CutsceneTriggerWolf
-var bat_fail_tree = preload("res://World/Objects/blue_tree_small.tscn")
+var bat_fail_tree = preload("res://Entities/World/Objects/blue_tree_small.tscn")
 @onready var color_rect = $CanvasLayer/ColorRect
 
 func player_death():

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://u1lc3vvq1dcu"]
+
+[ext_resource type="Texture2D" uid="uid://clekd8nom4ghb" path="res://Entities/World/monster hunter objects/teal_tree_bushy.png" id="1_l013f"]
+[ext_resource type="Texture2D" uid="uid://cgxmagp3n6quw" path="res://Entities/Shadows/LargeShadow.png" id="2_qn5f5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o4dd5"]
+radius = 52.0
+height = 104.803
+
+[node name="BlueTreeBushy" type="StaticBody2D"]
+scale = Vector2(0.25, 0.229)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 34.9345)
+shape = SubResource("CapsuleShape2D_o4dd5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_l013f")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 74)
+scale = Vector2(2.50694, 2.375)
+texture = ExtResource("2_qn5f5")

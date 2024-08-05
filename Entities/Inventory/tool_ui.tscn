@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl42pviuxy7p7"]
+
+[ext_resource type="Script" path="res://Entities/Inventory/tool_ui.gd" id="1_ckyxo"]
+[ext_resource type="Texture2D" uid="uid://dnyv750bv7jln" path="res://Entities/Inventory/inventory-bg.png" id="2_wq251"]
+[ext_resource type="PackedScene" uid="uid://b8snf5cx83x1r" path="res://Entities/Inventory/inv_slot_ui.tscn" id="3_wevqx"]
+
+[node name="ToolUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 22.0
+offset_bottom = 22.0
+script = ExtResource("1_ckyxo")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 22.0
+texture = ExtResource("2_wq251")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 6
+
+[node name="InvSlotUI" parent="NinePatchRect/GridContainer" instance=ExtResource("3_wevqx")]
+layout_mode = 2

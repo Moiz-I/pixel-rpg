@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://bb4o7xisevhve"]
+
+[ext_resource type="Texture2D" uid="uid://cl1mb7mkgewq5" path="res://Entities/Critters/Assets/Butterfly_001 Spritesheet.png" id="1_bn8qp"]
+[ext_resource type="Script" path="res://Entities/Critters/Assets/Butterfly.gd" id="1_ylqai"]
+[ext_resource type="PackedScene" uid="uid://bbaen8mb6ap65" path="res://Entities/Enemies/wander_controller.tscn" id="3_6u5qj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggl5f"]
+atlas = ExtResource("1_bn8qp")
+region = Rect2(0, 40, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfo33"]
+atlas = ExtResource("1_bn8qp")
+region = Rect2(8, 40, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syld1"]
+atlas = ExtResource("1_bn8qp")
+region = Rect2(16, 40, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxepw"]
+atlas = ExtResource("1_bn8qp")
+region = Rect2(24, 40, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_674t0"]
+atlas = ExtResource("1_bn8qp")
+region = Rect2(32, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jd37"]
+atlas = ExtResource("1_bn8qp")
+region = Rect2(40, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wlaq"]
+atlas = ExtResource("1_bn8qp")
+region = Rect2(48, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8m8s"]
+atlas = ExtResource("1_bn8qp")
+region = Rect2(56, 48, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_at4v5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggl5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfo33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syld1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxepw")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_674t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jd37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wlaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8m8s")
+}],
+"loop": true,
+"name": &"purple",
+"speed": 10.0
+}]
+
+[node name="Butterfly" type="CharacterBody2D"]
+script = ExtResource("1_ylqai")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_at4v5")
+animation = &"blue"
+frame_progress = 0.329223
+
+[node name="WanderController" parent="." instance=ExtResource("3_6u5qj")]
+wander_range = 5

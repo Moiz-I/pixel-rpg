@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfl0euckgvp3x"]
+
+[ext_resource type="PackedScene" uid="uid://cxpk7uvw0pygi" path="res://Entities/UI/health_ui.tscn" id="1_pwx51"]
+[ext_resource type="Shader" path="res://Entities/UI/testoutline.gdshader" id="2_iglxs"]
+[ext_resource type="Texture2D" uid="uid://02l2plfj1oer" path="res://Entities/UI/tool_bg.png" id="3_x3t0a"]
+[ext_resource type="Texture2D" uid="uid://3whcvvrljq5g" path="res://Entities/Player/tools/bug_net.png" id="4_pmf78"]
+[ext_resource type="Texture2D" uid="uid://chy1jq1x2k8gp" path="res://Entities/Player/tools/sword.png" id="5_b57xc"]
+[ext_resource type="PackedScene" uid="uid://dtikjhiugyd27" path="res://Entities/Inventory/inv_ui.tscn" id="6_7kxup"]
+[ext_resource type="PackedScene" uid="uid://cl42pviuxy7p7" path="res://Entities/Inventory/tool_ui.tscn" id="7_l5q7e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_olj7j"]
+shader = ExtResource("2_iglxs")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthUI" parent="Control" instance=ExtResource("1_pwx51")]
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = -21.0
+offset_right = 448.0
+offset_bottom = 267.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+visible = false
+material = SubResource("ShaderMaterial_olj7j")
+layout_mode = 0
+offset_left = 281.0
+offset_top = 141.0
+offset_right = 321.0
+offset_bottom = 181.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_x3t0a")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 22.8571
+offset_top = 7.85714
+offset_right = 65.8571
+offset_bottom = 28.8571
+rotation = 0.760964
+texture = ExtResource("4_pmf78")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Control/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 22.8571
+offset_top = 10.7143
+offset_right = 65.8571
+offset_bottom = 31.7143
+rotation = 0.760964
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_b57xc")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 3
+
+[node name="InvUI" parent="Control/MarginContainer" instance=ExtResource("6_7kxup")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="ToolUI" parent="Control/MarginContainer" instance=ExtResource("7_l5q7e")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://cc4r31he03bwr"]
+
+[ext_resource type="Script" path="res://Entities/Inventory/inventory_item.gd" id="1_aky02"]
+[ext_resource type="Texture2D" uid="uid://chy1jq1x2k8gp" path="res://Entities/Player/tools/sword.png" id="2_rsvmo"]
+
+[resource]
+script = ExtResource("1_aky02")
+name = "sword"
+texture = ExtResource("2_rsvmo")

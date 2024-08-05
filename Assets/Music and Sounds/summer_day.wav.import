@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c2g1vkmnovtd1"
+path="res://.godot/imported/summer_day.wav-a3552b12b0fd16db263951153f3e7117.sample"
+
+[deps]
+
+source_file="res://Assets/Music and Sounds/summer_day.wav"
+dest_files=["res://.godot/imported/summer_day.wav-a3552b12b0fd16db263951153f3e7117.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

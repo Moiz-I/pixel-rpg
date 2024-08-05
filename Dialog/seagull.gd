@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
-@onready var speech_sound = preload("res://Dialog/ghost_speech.wav")
+@onready var speech_sound = preload("res://Assets/Music and Sounds/Dialog/ghost_speech.wav")
 
 @export var dialog: CharacterDialog
 

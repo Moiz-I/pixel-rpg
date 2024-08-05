@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dvv3a0wv8pxcu"
+path="res://.godot/imported/ghost_speech2.wav-e80e4244e6486a8d1d29a361e65ddefc.sample"
+
+[deps]
+
+source_file="res://Assets/Music and Sounds/Dialog/ghost_speech2.wav"
+dest_files=["res://.godot/imported/ghost_speech2.wav-e80e4244e6486a8d1d29a361e65ddefc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
