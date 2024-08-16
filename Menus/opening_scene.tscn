@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://5k6tr4kvittf"]
 
-[ext_resource type="Texture2D" uid="uid://b44h6qqurqdjs" path="res://Menus/buildspace.png" id="1_5hen4"]
+[ext_resource type="Texture2D" uid="uid://b44h6qqurqdjs" path="res://Menus/Assets/buildspace.png" id="1_5hen4"]
 [ext_resource type="Script" path="res://Menus/opening_scene.gd" id="1_cge0u"]
-[ext_resource type="Texture2D" uid="uid://gd45ue3auoox" path="res://Menus/moiz.png" id="2_vuxa6"]
+[ext_resource type="Texture2D" uid="uid://gd45ue3auoox" path="res://Menus/Assets/moiz.png" id="2_vuxa6"]
 [ext_resource type="FontFile" uid="uid://d3pdb27vna1j4" path="res://Assets/Fonts/Pixellari.ttf" id="3_kinww"]
 
 [sub_resource type="Animation" id="Animation_carrp"]

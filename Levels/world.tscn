@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://b68jnus2hch77"]
+[gd_scene load_steps=89 format=3 uid="uid://b68jnus2hch77"]
 
 [ext_resource type="Texture2D" uid="uid://bir7xjg7ge6yd" path="res://Entities/World/GrassBackground.png" id="1_5mpdx"]
 [ext_resource type="Script" path="res://Levels/world.gd" id="1_ctwol"]
@@ -38,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://bn8qcnn487muo" path="res://Dialog/Assets/secret1.wav" id="37_6uxku"]
 [ext_resource type="PackedScene" uid="uid://dm2l24db0ilbp" path="res://Entities/Characters/Coyote/coyote.tscn" id="38_usw3v"]
 [ext_resource type="PackedScene" uid="uid://dkia5061qq1ci" path="res://Entities/Characters/Wolf/wolf.tscn" id="39_0m1t1"]
+[ext_resource type="PackedScene" uid="uid://gev72nooujnx" path="res://Entities/World/Objects/flower_bush.tscn" id="39_wciqt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26xc0"]
 
@@ -4316,6 +4317,9 @@ position = Vector2(120, 70)
 
 [node name="wolf" parent="." instance=ExtResource("39_0m1t1")]
 position = Vector2(76, 72)
+
+[node name="FlowerBush" parent="." instance=ExtResource("39_wciqt")]
+position = Vector2(270, 87)
 
 [connection signal="button_up" from="CanvasLayer/SettingsButton" to="." method="_on_settings_button_button_up"]
 [connection signal="finished" from="BGAudio" to="." method="_on_bg_audio_finished"]

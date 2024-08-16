@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://coc3lvnwoohm1"]
+[gd_scene load_steps=14 format=3 uid="uid://coc3lvnwoohm1"]
 
 [ext_resource type="Texture2D" uid="uid://d3njwuf07xu4k" path="res://Entities/Critters/Assets/Butterfly_001 Spritesheet.png" id="1_bn8qp"]
 [ext_resource type="Script" path="res://Entities/Critters/Butterfly.gd" id="1_ylqai"]
@@ -73,13 +73,29 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_e521d"]
+radius = 8.0
+
 [node name="Butterfly" type="CharacterBody2D"]
 script = ExtResource("1_ylqai")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_at4v5")
 animation = &"blue"
-frame_progress = 0.329223
+frame_progress = 0.34656
 
 [node name="WanderController" parent="." instance=ExtResource("3_6u5qj")]
-wander_range = 5
+wander_range = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_e521d")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 1024
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_e521d")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

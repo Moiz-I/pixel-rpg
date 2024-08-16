@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://pqklcdpoipj"]
+
+[ext_resource type="Texture2D" uid="uid://wabhsyyymlof" path="res://Entities/World/newstuff/flower_bush.png" id="1_0oj8u"]
+[ext_resource type="Script" path="res://testclick.gd" id="1_b34wm"]
+[ext_resource type="Script" path="res://Sprite2D.gd" id="2_bgwow"]
+[ext_resource type="Script" path="res://Area2D.gd" id="2_ifp7t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3si4"]
+radius = 26.4764
+
+[node name="testclick" type="Node2D"]
+position = Vector2(154, 84)
+script = ExtResource("1_b34wm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0oj8u")
+script = ExtResource("2_bgwow")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_ifp7t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_c3si4")

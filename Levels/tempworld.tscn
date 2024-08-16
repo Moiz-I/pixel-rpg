@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://b1fv4h7qlqc4j"]
+[gd_scene load_steps=113 format=3 uid="uid://b1fv4h7qlqc4j"]
 
 [ext_resource type="Texture2D" uid="uid://bir7xjg7ge6yd" path="res://Entities/World/GrassBackground.png" id="1_5skrm"]
 [ext_resource type="Script" path="res://Levels/tempworld.gd" id="1_a2c15"]
@@ -35,12 +35,12 @@
 [ext_resource type="Texture2D" uid="uid://dkcwrsxw0mnti" path="res://Entities/World/monster hunter objects/teal_tree_small.png" id="25_dxjxs"]
 [ext_resource type="PackedScene" uid="uid://cwpkdshbm5obl" path="res://Entities/Characters/FrogGuy/frog_guy.tscn" id="26_hx3yr"]
 [ext_resource type="PackedScene" uid="uid://dm2l24db0ilbp" path="res://Entities/Characters/Coyote/coyote.tscn" id="27_hhixe"]
-[ext_resource type="PackedScene" path="res://Entities/UI/health_ui.tscn" id="28_n6401"]
 [ext_resource type="PackedScene" uid="uid://bij0lssr2im7m" path="res://Utilities/Cutscenes/cutscene_effect.tscn" id="30_uvqg7"]
 [ext_resource type="PackedScene" uid="uid://dkia5061qq1ci" path="res://Entities/Characters/Wolf/wolf.tscn" id="32_0rbm4"]
 [ext_resource type="PackedScene" uid="uid://bqqpvgve6mj31" path="res://Entities/World/Objects/bush.tscn" id="33_wfhns"]
 [ext_resource type="PackedScene" uid="uid://0wqckqt4mui8" path="res://Entities/Inventory/item.tscn" id="34_0eo3k"]
 [ext_resource type="Resource" uid="uid://bpl3cp8tgsags" path="res://Entities/Inventory/Items/jam.tres" id="35_mef0v"]
+[ext_resource type="PackedScene" uid="uid://dfl0euckgvp3x" path="res://Entities/UI/player_ui.tscn" id="36_7dcy8"]
 [ext_resource type="PackedScene" uid="uid://cjkct2qf1ralx" path="res://Entities/World/Objects/blue_tree_small.tscn" id="36_w8fjq"]
 [ext_resource type="PackedScene" uid="uid://bwgge6mqjayaq" path="res://Entities/Characters/IcePriest/ice_priest.tscn" id="37_pv01p"]
 [ext_resource type="PackedScene" uid="uid://nfef58j0niyi" path="res://Entities/Enemies/bat.tscn" id="38_kw7ui"]
@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://u1lc3vvq1dcu" path="res://Entities/World/Objects/blue_tree_bushy.tscn" id="42_7qgb0"]
 [ext_resource type="FontFile" uid="uid://d3pdb27vna1j4" path="res://Assets/Fonts/Pixellari.ttf" id="50_vmt63"]
 [ext_resource type="Texture2D" uid="uid://ygsyv3sn3c4w" path="res://Menus/Keyboard Pixel Art by Avos Grosimbourg/Keyboard/Keyboard_Classic.png" id="51_g388x"]
+[ext_resource type="PackedScene" uid="uid://coc3lvnwoohm1" path="res://Entities/Critters/Butterfly.tscn" id="51_qp64s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_td67r"]
 shader = ExtResource("3_ikj6n")
@@ -34046,6 +34047,22 @@ size = Vector2(27, 22)
 y_sort_enabled = true
 script = ExtResource("1_a2c15")
 
+[node name="FlowerBush" parent="." instance=ExtResource("18_tvbf5")]
+z_index = 30
+position = Vector2(632, 568)
+
+[node name="FlowerBush2" parent="." instance=ExtResource("18_tvbf5")]
+z_index = 30
+position = Vector2(663, 569)
+
+[node name="FlowerBush3" parent="." instance=ExtResource("18_tvbf5")]
+z_index = 30
+position = Vector2(696, 569)
+
+[node name="FlowerBush4" parent="." instance=ExtResource("18_tvbf5")]
+z_index = 30
+position = Vector2(728, 569)
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="BackFixedTuxture" type="TextureRect" parent="Node2D"]
@@ -39042,9 +39059,6 @@ position = Vector2(96, 24)
 [node name="Grass19" parent="Grass" instance=ExtResource("17_vxovg")]
 position = Vector2(-1, 16)
 
-[node name="FlowerBush" parent="." instance=ExtResource("18_tvbf5")]
-position = Vector2(632, 568)
-
 [node name="MeSinglesCamping16x16Rock8" type="Sprite2D" parent="."]
 position = Vector2(592, 652)
 texture = ExtResource("19_deuhr")
@@ -39420,16 +39434,7 @@ position = Vector2(633, 485)
 [node name="PostWolf" type="Node2D" parent="InvisibleSpawnPoints/Player"]
 position = Vector2(920, 568)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HealthUI" parent="CanvasLayer" instance=ExtResource("28_n6401")]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-offset_left = -21.0
-offset_right = 448.0
-offset_bottom = 267.0
-color = Color(0, 0, 0, 1)
+[node name="PlayerUI" parent="." instance=ExtResource("36_7dcy8")]
 
 [node name="CutsceneEffect" parent="." instance=ExtResource("30_uvqg7")]
 
@@ -39487,7 +39492,7 @@ position = Vector2(-16, 640)
 position = Vector2(-130, 736)
 
 [node name="Bat5" parent="." instance=ExtResource("38_kw7ui")]
-position = Vector2(124, 736)
+position = Vector2(564, 619)
 
 [node name="Bat2" parent="." instance=ExtResource("38_kw7ui")]
 position = Vector2(1504, 328)
@@ -39627,6 +39632,19 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("51_g388x")
 region_enabled = true
 region_rect = Rect2(47.6736, 244.998, 47.566, 44.458)
+
+[node name="Critters" type="Node2D" parent="."]
+position = Vector2(589, 574)
+
+[node name="Butterfly" parent="Critters" instance=ExtResource("51_qp64s")]
+
+[node name="Butterfly2" parent="Critters" instance=ExtResource("51_qp64s")]
+
+[node name="Butterfly3" parent="Critters" instance=ExtResource("51_qp64s")]
+
+[node name="Butterfly4" parent="Critters" instance=ExtResource("51_qp64s")]
+
+[node name="Butterfly5" parent="Critters" instance=ExtResource("51_qp64s")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="CutsceneTriggerSnow" to="." method="_on_cutscene_trigger_snow_body_entered"]

@@ -1,14 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://gev72nooujnx"]
+[gd_scene load_steps=11 format=3 uid="uid://gev72nooujnx"]
 
 [ext_resource type="Texture2D" uid="uid://clc8g2yx2plgg" path="res://Entities/World/newstuff/ME_Singles_Villas_16x16_Villa_Yard_Flowers_5.png" id="1_gwdcb"]
+[ext_resource type="Script" path="res://Entities/World/Objects/flower_bush.gd" id="1_o4ir6"]
+[ext_resource type="Shader" path="res://outline.gdshader" id="2_isxbo"]
+[ext_resource type="PackedScene" uid="uid://p7qcn13ya0rr" path="res://Utilities/Boxes and Collisions/hurtbox.tscn" id="3_ha5l8"]
+[ext_resource type="PackedScene" uid="uid://bnin62s0s0rkj" path="res://Utilities/Interaction/interaction_area.tscn" id="4_ppp3p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pvjno"]
+shader = ExtResource("2_isxbo")
+shader_parameter/thickness = 0.0
+shader_parameter/ring_count = 4
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(0, 0.853191, 0.799178, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = null
+shader_parameter/max_or_add = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_488s4"]
 radius = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7sho"]
+radius = 16.1245
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3fxbf"]
+radius = 31.0161
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oabax"]
+
 [node name="FlowerBush" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_o4ir6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pvjno")
 texture = ExtResource("1_gwdcb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_488s4")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_ha5l8")]
+collision_layer = 8
+collision_mask = 20
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_l7sho")
+
+[node name="InteractionArea" parent="." instance=ExtResource("4_ppp3p")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_3fxbf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_oabax")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

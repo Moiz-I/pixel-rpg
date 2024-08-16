@@ -15,12 +15,18 @@ enum {
 }
 
 var state = IDLE
+var inv_item: InvItem
 
-func ready():
+func _ready():
 	randomize()
 	var butterflyType = pick_random_state(types)
+	sprite.frame = randf_range(0, sprite.sprite_frames.get_frame_count(butterflyType)-1)
 	sprite.play(butterflyType)
 	state = pick_random_state([IDLE, WANDER])
+	
+	inv_item = InvItem.new()
+	inv_item.name = butterflyType
+	inv_item.texture = sprite.sprite_frames.get_frame_texture(butterflyType, 2)
 
 func _physics_process(delta: float) -> void:
 	#if softCollision.is_colliding():
@@ -56,3 +62,9 @@ func accelerate_towards_point(delta, point):
 func pick_random_state(state_list):
 	return state_list.pick_random()
 	
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	area.emit_signal("tool_collected_item", inv_item)
+	queue_free()

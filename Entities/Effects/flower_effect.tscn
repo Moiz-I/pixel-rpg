@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://cyl01i7xuebr3"]
+
+[ext_resource type="Texture2D" uid="uid://mxddje3flvsi" path="res://Entities/Effects/FlowerEffect.png" id="1_j031g"]
+[ext_resource type="Script" path="res://FlowerEffect.gd" id="2_dl0fv"]
+[ext_resource type="AudioStream" uid="uid://dhk6lejde7dqn" path="res://Assets/Music and Sounds/leafrustle.wav" id="3_gveju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pl3t"]
+atlas = ExtResource("1_j031g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyuxp"]
+atlas = ExtResource("1_j031g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h42se"]
+atlas = ExtResource("1_j031g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_283g8"]
+atlas = ExtResource("1_j031g")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivm78"]
+atlas = ExtResource("1_j031g")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f7qc3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pl3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyuxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h42se")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_283g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivm78")
+}],
+"loop": false,
+"name": &"Animate",
+"speed": 10.0
+}]
+
+[node name="FlowerEffect" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_f7qc3")
+animation = &"Animate"
+autoplay = "Animate"
+script = ExtResource("2_dl0fv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gveju")
+autoplay = true

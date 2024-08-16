@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://0wqckqt4mui8"]
 
 [ext_resource type="Script" path="res://Entities/Inventory/item.gd" id="1_el6s8"]
-[ext_resource type="Texture2D" uid="uid://dh4g4cp5btyse" path="res://Entities/Inventory/Items/Jam.png" id="2_s2qbn"]
+[ext_resource type="Texture2D" uid="uid://dh4g4cp5btyse" path="res://Entities/Inventory/Assets/Jam.png" id="2_s2qbn"]
 [ext_resource type="Texture2D" uid="uid://bxnrvyathwb3p" path="res://Entities/Shadows/SmallShadow.png" id="3_5mmye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bn2kw"]

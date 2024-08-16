@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://wm0atta1lnkj"]
+
+[ext_resource type="Script" path="res://Entities/Inventory/inventory_item.gd" id="1_vp6vo"]
+[ext_resource type="Texture2D" uid="uid://3whcvvrljq5g" path="res://Entities/Inventory/Assets/Tools/bug_net.png" id="2_5l0ni"]
+
+[resource]
+script = ExtResource("1_vp6vo")
+name = "bug_net"
+texture = ExtResource("2_5l0ni")
